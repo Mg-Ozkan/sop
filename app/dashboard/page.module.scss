@@ -1,0 +1,207 @@
+$primary-color-day: #FDFDFD;
+$secondary-color-day: #161A30;
+
+
+.body {
+    background-color: #FDFDFD;
+}
+
+@media (prefers-color-scheme: dark) {
+    .body {
+    }
+}
+
+.content {
+    background-color: #FDFDFD;
+    min-height: 92vh;
+    min-width: 100vw;
+}
+
+.divider {
+    width: 80%;
+    background-color: #F5F5F5;
+    border-radius: 0.25rem;
+    height: 2px;
+    margin: 50px 30px 50px 30px;
+}
+
+.new-project-container {
+    background-color: #FDFDFD;
+    border-color: #B6BBC4;
+    border-radius: 0.25rem;
+    border-style: solid;
+    border-width: 4px;
+    height: 180px;
+    width: 212px;
+    transition: 0.3s;
+}
+
+.new-project-container:hover {
+    background-color: #F5F5F5;
+    border-color: #161A30;
+}
+
+.horizontal-plus {
+    background-color: #161A30;
+    width: 64px;
+    height: 6px;
+    margin: 80px 0 0 70px;
+    position: absolute;
+}
+
+.vertical-plus {
+    background-color: #161A30;
+    width: 6px;
+    height: 64px;
+    margin: 50px 0 0 98px;
+    position: absolute;
+}
+
+.new-project-title {
+    color: #161A30;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 135px 0 0 50px;
+    position: absolute;
+    font-weight: bold;
+}
+
+.suggested-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.suggested-wrapper {
+    margin: 0 0 0 35px;
+    background-color: #F5F5F5;
+    border-radius: 0.5rem;
+    padding: 10px;
+    width: 450px;
+    height: 200px;
+}
+
+.suggested-container h1 {
+    color: #161A30;
+}
+
+.suggested-title {
+    margin: 10px 0 10px 35px;
+}
+
+.slider-title h1 {
+    color: #161A30;
+}
+
+.project-container {
+    justify-content: center;
+    background-color: #FDFDFD;
+    border-color: #B6BBC4;
+    border-style: solid;
+    border-radius: 0.25rem;
+    border-width: 4px;
+    height: 180px;
+    width: 212px;
+    padding: 3.5px 0 0 4px;
+    margin: 0 0 0 10px;
+}
+
+.project-container:hover {
+    background-color: #F5F5F5;
+    border-color: #161A30;
+}
+
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+//edit to an appropriate image over random color
+.project-image-wrapper {
+    background-color: red;
+    border-radius: 0.25rem;
+    height: 106px;
+    width: 196px;
+}
+
+.project-description-wrapper {
+    display: flex;
+    flex-direction: column;
+    border-color: #B6BBC4;
+    border-top: 3px;
+    height: 60px;
+    width: 200px;
+}
+
+.project-title {
+    align-self: start; 
+    color: #161A30;
+    padding: 0 0 0 4px;
+    font-size: 16px;
+}
+
+.project-date {
+    align-self: start;
+    color: #161A30;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 0 0 6px;
+    margin: 6px 0 0 0;
+}
+
+
+
+
+
+
+//fix the following css shite
+
+.not-found-title {
+    color: black;
+    display: flex;
+    justify-self: center;
+}
+
+.searchbar-input {
+    display: block;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    border-width: 2px;
+    font-size: 0.875rem;
+    font-family: Roboto Condensed;
+    line-height: 1.25rem;
+    width: 500px;
+    color: black;
+    border-color: #B6BBC4;
+    background-color: #F5F5F5;
+}
+
+.recent-projects-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 35px;
+}
+
+.recent-projects-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.slider {
+    margin: 0;
+    overflow: visible;
+    padding: 10px 10px;
+}
+
+.slider-container {
+    width: 90vw;
+    align-self: start;
+}
+
+.slider-wrapper {
+    overflow: visible;
+    margin-inline: 0;
+}

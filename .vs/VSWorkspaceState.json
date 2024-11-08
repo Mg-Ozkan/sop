@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\app",
+    "\\app\\api\\flows",
+    "\\app\\dashboard",
+    "\\app\\dashboard\\components"
+  ],
+  "SelectedNode": "\\app\\dashboard\\page.module.scss",
+  "PreviewInSolutionExplorer": false
+}
