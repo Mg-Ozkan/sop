@@ -49,3 +49,6 @@ next-env.d.ts
 /.gitignore
 /.gitignore
 *.config
+/.vs/sop/v17/.wsuo
+/.vs/VSWorkspaceState.json
+/.vs/sop/v17/DocumentLayout.json
