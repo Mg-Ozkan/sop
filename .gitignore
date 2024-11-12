@@ -38,3 +38,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+/.vs/slnx.sqlite
+/.vs/sop/FileContentIndex
+/.vs/sop/FileContentIndex/116d2824-0629-4fad-b512-14adfbbc1621.vsidx
+/.vs/sop/v17
+/.vs/sop/v17/.wsuo
+/.vs/sop/v17/DocumentLayout.json
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.gitignore
+/.gitignore
+*.config

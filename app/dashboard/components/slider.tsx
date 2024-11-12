@@ -34,7 +34,7 @@ export default function Slider({ projects }: SliderProps) {
                 {projects.map((project, index) => {
                     return (
                         <div className="slider" key={index}>
-                            <ProjectListing key={project.id} project={project} />
+                            <ProjectListing key={project.id} id={project.id} title={project.title} date={project.date} />
                         </div>
                         )
                     })

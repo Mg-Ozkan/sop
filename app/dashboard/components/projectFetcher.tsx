@@ -19,31 +19,6 @@ interface ProjectFetcherResult {
 }
 
 export default function ProjectFetcher({ userId = 0, fetchMostRecent = false }: ProjectFetcherProps): ProjectFetcherResult {
-	{/*const [projects, setProjects] = useState<Project[]>([]);
-	const [loading, setLoading] = useState<boolean>(true); // New loading state*/}
-
-	{/*useEffect(() => {
-		const fetchProjects = async () => {
-			setLoading(true);
-
-			const apiUrl = fetchMostRecent
-				? `/api/projects?userId=${userId}&_limit=1&_sort=date&_order=desc`
-				: `/api/projects?userId=${userId}&_sort=date&_order=desc`;
-
-			try {
-				const res = await fetch(apiUrl);
-				const data: Project[] = await res.json();
-				setProjects(data);
-			} catch (error) {
-				console.log('Error fetching data', error)
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		fetchProjects();
-	}, [userId, fetchMostRecent]);*/}
-
 	const projects: Project[] = mockData as Project[];
 	const loading = false;
 

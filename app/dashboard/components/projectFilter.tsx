@@ -20,7 +20,7 @@ interface FilteredProjectsResult {
 
 export default function FilterProjects({ projects }: FilterProjectsProps): FilteredProjectsResult {
 	const [filter, setFilter] = useState<string>('');
-	const [loading, setLoading] = useState<boolean>(true); //new loading state
+	const [loading, setLoading] = useState<boolean>(false); //new loading state
 
 	const timeout = setTimeout(() => {
 		setLoading(false);

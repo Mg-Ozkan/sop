@@ -2,13 +2,6 @@ import ProjectFetcher from './projectFetcher';
 import ProjectListing from './projectListing';
 import styles from "../page.module.scss";
 
-//reflect uml class once definitive
-interface Project {
-	id: number;
-	title: string;
-	date: string;
-}
-
 export default function ContentSuggested() {
 	const fetchReturn = ProjectFetcher({userId: 1, fetchMostRecent: true});
 
@@ -27,7 +20,7 @@ export default function ContentSuggested() {
 						</p>
 					</div>
 					<div className={styles["action-recent"]}>
-						<ProjectListing project={fetchReturn.projects[0]} />
+						<ProjectListing id={fetchReturn.projects[0].id} title={fetchReturn.projects[0].title} date={fetchReturn.projects[0].date} />
 					</div>
 				</div>
 			</div>
