@@ -56,7 +56,7 @@ export const defaultNodes: ShapeNode[] = [
     id: '6',
     type: 'shape',
     position: { x: -200, y: 0 },
-    style: { width: 80, height: 80 },
+    style: { width: 60, height: 60 },
     data: {
       type: 'circle',
       color: '#438D57',
@@ -65,8 +65,8 @@ export const defaultNodes: ShapeNode[] = [
   {
     id: '7',
     type: 'shape',
-    position: { x: -210, y: 150 },
-    style: { width: 100, height: 100 },
+    position: { x: -200, y: 100 },
+    style: { width: 60, height: 60 },
     data: {
       type: 'rectangle',
       color: '#438D57',
