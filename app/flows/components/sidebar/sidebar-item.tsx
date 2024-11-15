@@ -1,3 +1,5 @@
+"use client";
+
 import { type DragEvent, useRef } from 'react';
 
 import Shape from '@/app/flows/components/shape/page';

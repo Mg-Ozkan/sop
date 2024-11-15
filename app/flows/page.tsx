@@ -1,3 +1,5 @@
+"use client";
+
 import { DragEvent, DragEventHandler } from 'react';
 import {
   ReactFlow,
@@ -11,16 +13,14 @@ import {
   DefaultEdgeOptions,
   Controls,
   useReactFlow,
-  MiniMap,
 } from '@xyflow/react';
 
-
+import "@/app/flows/page.scss";
 import '@xyflow/react/dist/style.css';
 
 import { defaultNodes, defaultEdges } from './initial-elements';
 import ShapeNodeComponent from './components/shape-node/page';
 import Sidebar from './components/sidebar/page';
-import MiniMapNode from './components/minimap-node/page';
 import { ShapeNode, ShapeType } from './components/shape/types/page';
 
 const nodeTypes: NodeTypes = {
@@ -101,7 +101,6 @@ function FlowDisplay({ theme = 'light', snapToGrid = true, panOnScroll = true, z
         <Sidebar />
       </Panel>
       <Controls />
-      <MiniMap zoomable draggable nodeComponent={MiniMapNode} />
     </ReactFlow>
   );
 }
