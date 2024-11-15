@@ -1,7 +1,9 @@
+import React from 'react';
+
 export default function Home() {
   return (
-    <>
-      Hello home page!
-    </>
+    <React.StrictMode>
+      Hello
+    </React.StrictMode>
   );
 }

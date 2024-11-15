@@ -17,6 +17,7 @@ import {
 
 import "@/app/flows/page.scss";
 import '@xyflow/react/dist/style.css';
+import './page.scss';
 
 import { defaultNodes, defaultEdges } from './initial-elements';
 import ShapeNodeComponent from './components/shape-node/page';
