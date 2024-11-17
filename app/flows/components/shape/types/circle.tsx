@@ -1,4 +1,4 @@
-import { type ShapeProps } from './page';
+import { type ShapeProps } from "./page";
 
 export default function Circle({ width, height, ...svgAttributes }: ShapeProps) {
   return (

@@ -6,12 +6,12 @@ import {
     Position,
     useKeyPress,
     useReactFlow,
-} from '@xyflow/react';
+} from "@xyflow/react";
   
-import Shape from '@/app/flows/components/shape/page';
-import ShapeNodeToolbar from '../toolbar/page';
-import { type ShapeNode } from '@/app/flows/components/shape/types/page';
-import NodeLabel from './label';
+import Shape from "@/app/flows/components/shape/page";
+import ShapeNodeToolbar from "../toolbar/page";
+import { type ShapeNode } from "@/app/flows/components/shape/types/page";
+import NodeLabel from "./label";
   
   // This will return the current dimensions of the node.
 function useNodeDimensions(id: string) {
@@ -27,7 +27,7 @@ export default function ShapeNode({ id, selected, data }: NodeProps<ShapeNode>) 
     const { setNodes } = useReactFlow();
   
     const { width, height } = useNodeDimensions(id);
-    const shiftKeyPressed = useKeyPress('Shift');
+    const shiftKeyPressed = useKeyPress("Shift");
     const handleStyle = { backgroundColor: color };
   
     const onColorChange = (color: string) => {

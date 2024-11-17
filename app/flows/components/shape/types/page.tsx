@@ -1,14 +1,14 @@
-import { SVGAttributes } from 'react';
-import type { Node } from '@xyflow/react';
+import { SVGAttributes } from "react";
+import type { Node } from "@xyflow/react";
 
-import RoundRectangle from './round-rectangle';
-import Circle from './circle';
-import Rectangle from './rectangle';
+import RoundRectangle from "./round-rectangle";
+import Circle from "./circle";
+import Rectangle from "./rectangle";
 
 // Register all the shapes that are available
 export const ShapeComponents = {
   circle: Circle,
-  'round-rectangle': RoundRectangle,
+  "round-rectangle": RoundRectangle,
   rectangle: Rectangle,
 };
 

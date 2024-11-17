@@ -1,5 +1,7 @@
+import "./css/label.scss";
+
 export default function NodeLabel(props: { placeholder: string }) {
     return (
-      <input type='text' className='node-label' placeholder={props.placeholder} />
+      <input type="text" className="node-label" placeholder={props.placeholder} />
     );
 }

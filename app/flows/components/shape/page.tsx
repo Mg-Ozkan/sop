@@ -1,4 +1,4 @@
-import { ShapeComponents, type ShapeComponentProps } from './types/page';
+import { ShapeComponents, type ShapeComponentProps } from "./types/page";
 
 export default function Shape({ type, width, height, ...svgAttributes }: ShapeComponentProps) {
   const ShapeComponent = ShapeComponents[type];
@@ -16,7 +16,7 @@ export default function Shape({ type, width, height, ...svgAttributes }: ShapeCo
   const innerHeight = height - 2 * strokeWidth;
 
   return (
-    <svg width={width} height={height} className='shape-svg'>
+    <svg width={width} height={height} className="shape-svg">
       {/* Offsets the shape by the strokeWidth so that we have enough space for the stroke */}
       <g
         transform={`translate(${svgAttributes.strokeWidth ?? 0}, ${

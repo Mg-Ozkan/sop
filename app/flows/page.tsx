@@ -1,6 +1,6 @@
 "use client";
 
-import { DragEvent, DragEventHandler } from 'react';
+import { DragEvent, DragEventHandler } from "react";
 import {
   ReactFlow,
   Background,
@@ -13,48 +13,47 @@ import {
   DefaultEdgeOptions,
   Controls,
   useReactFlow,
-} from '@xyflow/react';
+} from "@xyflow/react";
 
-import "@/app/flows/page.scss";
-import '@xyflow/react/dist/style.css';
-import './page.scss';
+import "@xyflow/react/dist/style.css";
+import "./page.scss";
 
-import { defaultNodes, defaultEdges } from './initial-elements';
-import ShapeNodeComponent from './components/shape-node/page';
-import Sidebar from './components/sidebar/page';
-import { ShapeNode, ShapeType } from './components/shape/types/page';
+import { defaultNodes, defaultEdges } from "./initial-elements";
+import ShapeNodeComponent from "./components/shape-node/page";
+import Sidebar from "./components/sidebar/page";
+import { ShapeNode, ShapeType } from "./components/shape/types/page";
 
 const nodeTypes: NodeTypes = {
   shape: ShapeNodeComponent,
 };
 
 const defaultEdgeOptions: DefaultEdgeOptions = {
-  type: 'smoothstep',
+  type: "smoothstep",
   markerEnd: { type: MarkerType.ArrowClosed },
   style: { strokeWidth: 2 },
 };
 
-const proOptions = { account: 'paid-pro', hideAttribution: true };
+const proOptions = { account: "paid-pro", hideAttribution: true };
 
 type DisplayProps = {
-  theme?: 'dark' | 'light';
+  theme?: "dark" | "light";
   snapToGrid?: boolean;
   panOnScroll?: boolean;
   zoomOnDoubleClick?: boolean;
 };
 
-function FlowDisplay({ theme = 'light', snapToGrid = true, panOnScroll = true, zoomOnDoubleClick = false, } : DisplayProps) {
+function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, zoomOnDoubleClick = false, } : DisplayProps) {
   const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
 
   const onDragOver = (evt: DragEvent<HTMLDivElement>) => {
     evt.preventDefault();
-    evt.dataTransfer.dropEffect = 'move';
+    evt.dataTransfer.dropEffect = "move";
   };
 
   // This function is called when a node from the sidebar is dropped onto the react flow pane
   const onDrop: DragEventHandler = (evt: DragEvent<HTMLDivElement>) => {
     evt.preventDefault();
-    const type = evt.dataTransfer.getData('application/reactflow') as ShapeType;
+    const type = evt.dataTransfer.getData("application/reactflow") as ShapeType;
 
     // This will convert the pixel position of the node to the react flow coordinate system
     // So that a node is added at the correct position even when viewport is translated and/or zoomed in
@@ -62,12 +61,12 @@ function FlowDisplay({ theme = 'light', snapToGrid = true, panOnScroll = true, z
 
     const newNode: ShapeNode = {
       id: Date.now().toString(),
-      type: 'shape',
+      type: "shape",
       position,
-      style: { width: 100, height: 100 },
+      style: { width: 60, height: 60 },
       data: {
         type,
-        color: '#3F8AE2',
+        color: "#3F8AE2",
       },
       selected: true,
     };
@@ -106,18 +105,10 @@ function FlowDisplay({ theme = 'light', snapToGrid = true, panOnScroll = true, z
   );
 }
 
-export default function ProExampleWrapper() {
-  // Renders a leva control panel to interactively configure
-  const props = {
-    theme: 'light',
-    snapToGrid: true,
-    panOnScroll: true,
-    zoomOnDoubleClick: false,
-  };
-
+export default function FlowDisplayWrapper() {
   return (
     <ReactFlowProvider>
-      <FlowDisplay {...(props as DisplayProps)} />
+      <FlowDisplay />
     </ReactFlowProvider>
   );
 }
