@@ -10,7 +10,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
+      name: "Start",
     },
+    selected: false,
   },
   {
     id: "2",
@@ -20,7 +22,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
+      name: "Analyse",
     },
+    selected: false,
   },
   {
     id: "3",
@@ -30,7 +34,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
+      name: "Node 3",
     },
+    selected: false,
   },
   {
     id: "4",
@@ -40,7 +46,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
+      name: "Node 4",
     },
+    selected: false,
   },
   {
     id: "5",
@@ -50,7 +58,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
+      name: "Node 5",
     },
+    selected: false,
   },
   {
     id: "6",
@@ -60,7 +70,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "circle",
       color: "#438D57",
+      name: "Node 6",
     },
+    selected: false,    
   },
   {
     id: "7",
@@ -70,7 +82,9 @@ export const defaultNodes: ShapeNode[] = [
     data: {
       type: "rectangle",
       color: "#438D57",
+      name: "Node 7",
     },
+    selected: false,
   },
 ];
 

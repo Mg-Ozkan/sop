@@ -24,4 +24,6 @@ export type ShapeComponentProps = Partial<ShapeProps> & { type: ShapeType };
 export type ShapeNode = Node<{
   type: ShapeType;
   color: string;
+  name: string;
+  isActive?: boolean;
 }>;

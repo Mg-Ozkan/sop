@@ -89,7 +89,7 @@ return (
           type="source"
           position={Position.Left}
         />
-        <NodeLabel placeholder={data.type} />
+        <NodeLabel placeholder={data.name} />
       </>
     );
 }

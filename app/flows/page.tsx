@@ -1,27 +1,16 @@
 "use client";
 
+import React from "react";
 import { DragEvent, DragEventHandler } from "react";
-import {
-  ReactFlow,
-  Background,
-  ReactFlowProvider,
-  ConnectionLineType,
-  MarkerType,
-  ConnectionMode,
-  Panel,
-  NodeTypes,
-  DefaultEdgeOptions,
-  Controls,
-  useReactFlow,
-} from "@xyflow/react";
-
-import "@xyflow/react/dist/style.css";
-import "./page.scss";
-
+import { ReactFlow, Background, ReactFlowProvider, ConnectionLineType, MarkerType, ConnectionMode, Panel, NodeTypes, DefaultEdgeOptions, Controls, useReactFlow } from "@xyflow/react";
 import { defaultNodes, defaultEdges } from "./initial-elements";
 import ShapeNodeComponent from "./components/shape-node/page";
 import Sidebar from "./components/sidebar/page";
 import { ShapeNode, ShapeType } from "./components/shape/types/page";
+import BuilderMenu from "./components/sidebar/builderMenu";
+
+import "@xyflow/react/dist/style.css";
+import "./page.scss";
 
 const nodeTypes: NodeTypes = {
   shape: ShapeNodeComponent,
@@ -44,6 +33,19 @@ type DisplayProps = {
 
 function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, zoomOnDoubleClick = false, } : DisplayProps) {
   const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
+  const [selectedNode, setSelectedNode] = React.useState<ShapeNode | null>(null);
+
+  const onNodeClick = React.useCallback((event: React.MouseEvent, node: ShapeNode) => {
+    setSelectedNode(node);
+  }, []);
+
+  const handleNodeUpdate = React.useCallback((nodeId: string, data: any) => {
+    setNodes((nodes) =>
+      nodes.map((node) =>
+        node.id === nodeId ? { ...node, data: { ...node.data, ...data } } : node
+      )
+    );
+  }, [setNodes]);
 
   const onDragOver = (evt: DragEvent<HTMLDivElement>) => {
     evt.preventDefault();
@@ -63,12 +65,13 @@ function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, z
       id: Date.now().toString(),
       type: "shape",
       position,
-      style: { width: 60, height: 60 },
+      style: { width: 70, height: 70 },
       data: {
         type,
         color: "#3F8AE2",
+        name: type,
       },
-      selected: true,
+      selected: false,
     };
 
     setNodes((nodes) =>
@@ -79,29 +82,36 @@ function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, z
   };
 
   return (
-    <ReactFlow
-      colorMode={theme}
-      proOptions={proOptions}
-      nodeTypes={nodeTypes}
-      defaultNodes={defaultNodes}
-      defaultEdges={defaultEdges}
-      defaultEdgeOptions={defaultEdgeOptions}
-      connectionLineType={ConnectionLineType.SmoothStep}
-      fitView
-      connectionMode={ConnectionMode.Loose}
-      panOnScroll={panOnScroll}
-      onDrop={onDrop}
-      snapToGrid={snapToGrid}
-      snapGrid={[10, 10]}
-      onDragOver={onDragOver}
-      zoomOnDoubleClick={zoomOnDoubleClick}
-    >
-      <Background />
-      <Panel position="top-left">
-        <Sidebar />
-      </Panel>
-      <Controls />
-    </ReactFlow>
+    <div className="flow-container">
+      <ReactFlow
+        colorMode={theme}
+        proOptions={proOptions}
+        nodeTypes={nodeTypes}
+        defaultNodes={defaultNodes}
+        defaultEdges={defaultEdges}
+        defaultEdgeOptions={defaultEdgeOptions}
+        connectionLineType={ConnectionLineType.SmoothStep}
+        fitView
+        connectionMode={ConnectionMode.Loose}
+        panOnScroll={panOnScroll}
+        onDrop={onDrop}
+        snapToGrid={snapToGrid}
+        snapGrid={[10, 10]}
+        onDragOver={onDragOver}
+        zoomOnDoubleClick={zoomOnDoubleClick}
+        onNodeClick={onNodeClick}
+      >
+        <Background />
+        <Panel position="top-left">
+          <Sidebar />
+        </Panel>
+        <Controls />
+      </ReactFlow>      
+      <BuilderMenu 
+        selectedNode={selectedNode} 
+        onNodeUpdate={handleNodeUpdate}
+      />
+    </div>
   );
 }
 
