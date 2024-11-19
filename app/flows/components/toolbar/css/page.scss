@@ -1,0 +1,14 @@
+
+.color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: none;
+    border: 1px solid var(--panel-background);
+    cursor: pointer;
+}
+  
+.color-swatch.active {
+    outline: 2px solid var(--text);
+}

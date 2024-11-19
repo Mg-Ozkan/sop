@@ -1,0 +1,12 @@
+.sidebar-label {
+    color: var(--text);
+    font-size: 12px;
+    margin-bottom: 4px;
+    user-select: none;
+}
+  
+.sidebar-items {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+}
