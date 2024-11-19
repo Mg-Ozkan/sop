@@ -2,11 +2,6 @@
     background-color: #FDFDFD;
 }
 
-@media (prefers-color-scheme: dark) {
-    .body {
-    }
-}
-
 .content {
     background-color: #FDFDFD;
     min-height: 92vh;
@@ -14,17 +9,19 @@
 }
 
 .divider {
+    position: absolute;
+    top: calc(45vh + 49px);
     width: 80%;
     background-color: #F5F5F5;
     border-radius: 0.25rem;
     height: 2px;
-    margin: 50px 30px 50px 30px;
+    margin: 0 30px 0 30px;
 }
 
 .new-project-container {
+    cursor: pointer;
     background-color: #FDFDFD;
     border-color: #B6BBC4;
-    border-radius: 0.25rem;
     border-style: solid;
     border-width: 4px;
     height: 180px;
@@ -34,7 +31,7 @@
 
 .new-project-container:hover {
     background-color: #F5F5F5;
-    border-color: #161A30;
+    border-color: #808080;
 }
 
 .horizontal-plus {
@@ -77,12 +74,21 @@
     height: 200px;
 }
 
+.suggested-container {
+    display: flex;
+    flex-direction: column;
+    height: 45vh;
+    margin-top: 50px;
+}
+
 .suggested-container h1 {
     color: #161A30;
 }
 
 .suggested-title {
-    margin: 10px 0 10px 35px;
+    margin: 30px 0 10px 35px;
+    font-weight: 100;
+    font-family: 'Roboto Condensed';
 }
 
 .slider-title h1 {
@@ -90,21 +96,22 @@
 }
 
 .project-container {
+    cursor: pointer;
     justify-content: center;
     background-color: #FDFDFD;
     border-color: #B6BBC4;
     border-style: solid;
-    border-radius: 0.25rem;
     border-width: 4px;
     height: 180px;
     width: 212px;
     padding: 3.5px 0 0 4px;
     margin: 0 0 0 10px;
+    transition: 0.3s;
 }
 
 .project-container:hover {
     background-color: #F5F5F5;
-    border-color: #161A30;
+    border-color: #808080;
 }
 
 .project-wrapper {
@@ -114,7 +121,7 @@
 
 //edit to an appropriate image over random color
 .project-image-wrapper {
-    background-color: red;
+    background-color: whitesmoke;
     border-radius: 0.25rem;
     height: 106px;
     width: 196px;
@@ -127,6 +134,7 @@
     border-top: 3px;
     height: 60px;
     width: 200px;
+    margin-top: 10px;
 }
 
 .project-title {
@@ -158,25 +166,25 @@
     justify-self: center;
 }
 
+
 .searchbar-input {
+    all: unset;
+    color: black;
     display: block;
-    padding: 0.25rem;
+    padding: 0.5rem;
     border-radius: 0.5rem;
-    border-width: 2px;
     font-size: 0.875rem;
-    font-family: Roboto Condensed;
     line-height: 1.25rem;
     width: 500px;
-    color: black;
-    border-color: #B6BBC4;
     background-color: #F5F5F5;
+    border: 2px solid #B6BBC4;
+    font-family: 'Roboto Condensed';
 }
 
 .recent-projects-container {
+    height: 48vh;
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
-    margin-left: 35px;
 }
 
 .recent-projects-wrapper {
@@ -184,6 +192,7 @@
     display: flex;
     flex-direction: column;
     align-content: center;
+    margin: 30px 0 0 35px;
 }
 
 .slider {
@@ -193,11 +202,17 @@
 }
 
 .slider-container {
-    width: 90vw;
+    max-width: 1080px;
     align-self: start;
 }
 
 .slider-wrapper {
     overflow: visible;
     margin-inline: 0;
+}
+
+.slider-title h1 {
+    font-weight: 100;
+    font-family: 'Roboto Condensed';
+    margin: 5px 0 5px 0;
 }

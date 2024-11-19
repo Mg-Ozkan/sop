@@ -1,10 +1,46 @@
 .slider {
+    position: relative;
     overflow: visible;
     padding: 0 0;
     margin-inline: 0;
 }
 
+.button {
+    all: unset;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #808080;
+}
+
+.custom-arrow-left {
+    position: absolute;
+    height: 180px;
+    width: 20px;
+    top: 10px;
+    left: 0px;
+    z-index: 9;
+    background-color: #B6BBC4;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.custom-arrow-right {
+    position: absolute;
+    height: 180px;
+    width: 20px;
+    top: 10px;
+    right: 0px;
+    z-index: 9;
+    background-color: #B6BBC4;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
 .slider-wrapper {
+    position: relative;
     background-color: #F5F5F5;
     padding-inline: 10px;
     border-radius: 10px;
@@ -29,39 +65,9 @@
 }
 
 .react-multi-carousel-track {
-    padding-inline: 10px 10px 10px 10px;
     padding: 10px 0 10px 0;
 }
 
 .react-multi-carousel-list {
-    padding: 0 20px 0 20px;
     margin-inline: 0px;
-}
-
-.custom-dot-list-style button {
-    border: none;
-    background: rgb(255, 68, 68);
-}
-
-.react-multi-carousel-dot.react-multi-carousel-dot--active button {
-    background: rgb(255, 68, 68) !important;
-}
-
-.react-multiple-carousel__arrow {
-    height: 180px;
-    min-width: 15px;
-    border-radius: 0px;
-    background-color: #808080;
-}
-
-.react-multiple-carousel__arrow--right {
-    right: 0px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.react-multiple-carousel__arrow--left {
-    left: 0px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
