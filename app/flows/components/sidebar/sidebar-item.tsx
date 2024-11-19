@@ -1,0 +1,46 @@
+"use client";
+
+import { type DragEvent, useRef } from "react";
+import Shape from "@/app/flows/components/shape/page";
+import { type ShapeType } from "@/app/flows/components/shape/types/page";
+
+import "./css/sidebar-item.scss";
+
+type SidebarItemProps = {
+  type: ShapeType;
+};
+
+export default function SidebarItem({ type }: SidebarItemProps) {
+  const dragImageRef = useRef<HTMLDivElement>(null);
+
+  const onDragStart = (event: DragEvent<HTMLDivElement>) => {
+    event.dataTransfer?.setData("application/reactflow", type);
+
+    if (dragImageRef.current) {
+      event.dataTransfer.setDragImage(dragImageRef.current, 0, 0);
+    }
+  };
+
+  return (
+    <div className="sidebar-item" draggable onDragStart={onDragStart}> 
+      <Shape
+        type={type}
+        fill="transparent"
+        strokeWidth={1}
+        width={28}
+        height={28}
+      />
+      <div className="sidebar-item-drag-image" ref={dragImageRef}>
+        <Shape
+          type={type}
+          width={80}
+          height={80}
+          fill="#3F8AE2"
+          fillOpacity={0.7}
+          stroke="#3F8AE2"
+          strokeWidth={2}
+        />
+      </div>
+    </div>
+  );
+}
