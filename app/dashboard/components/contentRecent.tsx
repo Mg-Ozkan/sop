@@ -7,6 +7,7 @@ export default function ContentRecent() {
     const fetchReturn = ProjectFetcher({ userId: 1, fetchMostRecent: false});
     const { filteredProjects, filter, handleFilterChange } = FilterProjects({projects: fetchReturn.projects});
 
+
     return (
         <div className={styles["recent-projects-container"]}>
             <div className={styles["recent-projects-wrapper"]}>
@@ -29,12 +30,11 @@ export default function ContentRecent() {
                     </h1>
                 </div>
                 <div className={styles["slider-container"]}>
-                    {filteredProjects.length > 0
-                        ? <Slider projects={filteredProjects} />
-                        : <h1 className={styles["not-found-title"]}>
-                            Geen recente projecten gevonden
-                          </h1>
-                    }
+                    {filteredProjects.length > 0 ? (
+                        <Slider projects={filteredProjects} />
+                    ) : (
+                        <h1 className={styles["not-found-title"]}>Geen recente projecten gevonden</h1>
+                    )}
                 </div>
             </div>
         </div>
