@@ -20,12 +20,20 @@ interface Project {
 const responsive = {
     desktop: {
         breakpoint: { max: 3000, min: 1024 },
-        items: 4,
         slidesToSlide: 1,
+        items: 4,
         partialVisibilityGutter: 40
     },
 };
 
+const responsiveSearch = {
+    desktop: {
+        breakpoint: { max: 3000, min: 1024 },
+        items: 4,
+        slidesToSlide: 1,
+        partialVisibilityGutter: 0
+    },
+}
 
 interface CarouselButtonGroupProps extends ButtonGroupProps {
     className?: string;
@@ -34,8 +42,12 @@ interface CarouselButtonGroupProps extends ButtonGroupProps {
 const CarouselButtonGroup = ({ next, previous }:CarouselButtonGroupProps) => {
     return (
       <div>
-            <button className="custom-arrow-left button" onClick={() => previous!()} />
-            <button className="custom-arrow-right button" onClick={() => next!()} />
+        <div className="custom-arrow-left button" onClick={() => previous!()}>
+            <div className="custom-arrow-left__arrow"/>
+        </div>
+        <div className="custom-arrow-right button" onClick={() => next!()}>
+            <div className="custom-arrow-right__arrow"/>
+        </div>
       </div>
     );
 };
@@ -47,7 +59,12 @@ export default function Slider({ projects }: SliderProps) {
                 arrows={false}
                 renderButtonGroupOutside={true}
                 customButtonGroup={<CarouselButtonGroup />}
-                responsive={responsive}
+                responsive={projects.length < 5 ? {desktop: {
+                    breakpoint: { max: 3000, min: 1024 },
+                    slidesToSlide: 1,
+                    items: projects.length,
+                    paritialVisibilityGutter: 0
+                }} : responsive}
                 partialVisible={true}
                 containerClass="react-multi-carousel-list"
                 itemClass="react-multi-carousel-item"
