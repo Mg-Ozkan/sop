@@ -28,18 +28,9 @@ export default function BuilderMenu({ selectedNode, onNodeUpdate }: BuilderMenuP
 
   return (
     <div className="buildermenu">
-      <h3>Details</h3>
+      <h3>Software Ontwikkel Proces</h3>
       <div className="buildermenu-content">
-        <p>ID: {selectedNode.id}</p>
-        <p>Type: {selectedNode.data.type}</p>
-        <p>Name: {selectedNode.data.name}</p>
-        
-        <button 
-          className="buildermenu-button"
-          onClick={onActivate}
-        >
-          {selectedNode.data.isActive ? "Deactivate" : "Activate"}
-        </button>
+        <p>Node Name: {selectedNode.data.name}</p>
       </div>
     </div>
   );

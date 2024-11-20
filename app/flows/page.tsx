@@ -31,7 +31,7 @@ type DisplayProps = {
   zoomOnDoubleClick?: boolean;
 };
 
-function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, zoomOnDoubleClick = false, } : DisplayProps) {
+function FlowDisplay({ theme = "dark", snapToGrid = true, panOnScroll = true, zoomOnDoubleClick = false, } : DisplayProps) {
   const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
   const [selectedNode, setSelectedNode] = React.useState<ShapeNode | null>(null);
 
@@ -106,8 +106,8 @@ function FlowDisplay({ theme = "light", snapToGrid = true, panOnScroll = true, z
           <Sidebar />
         </Panel>
         <Controls />
-      </ReactFlow>      
-      <BuilderMenu 
+      </ReactFlow>
+      <BuilderMenu
         selectedNode={selectedNode} 
         onNodeUpdate={handleNodeUpdate}
       />
