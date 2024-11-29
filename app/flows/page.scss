@@ -10,6 +10,15 @@ body,
   height: 100%;
   margin: 0;
 }
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.react-flow-container {
+  flex: 1;
+}
   
 .react-flow {
   --background: #e2e8f0;
@@ -66,8 +75,4 @@ body,
 .react-flow__handle,
 .react-flow__resize-control.handle {
   border: 1px solid var(--background);
-}
-
-.flow-container {
-  display: contents;
 }

@@ -82,36 +82,38 @@ function FlowDisplay({ theme = "dark", snapToGrid = true, panOnScroll = true, zo
   };
 
   return (
-    <div className="flow-container">
-      <ReactFlow
-        colorMode={theme}
-        proOptions={proOptions}
-        nodeTypes={nodeTypes}
-        defaultNodes={defaultNodes}
-        defaultEdges={defaultEdges}
-        defaultEdgeOptions={defaultEdgeOptions}
-        connectionLineType={ConnectionLineType.SmoothStep}
-        fitView
-        connectionMode={ConnectionMode.Loose}
-        panOnScroll={panOnScroll}
-        onDrop={onDrop}
-        snapToGrid={snapToGrid}
-        snapGrid={[10, 10]}
-        onDragOver={onDragOver}
-        zoomOnDoubleClick={zoomOnDoubleClick}
-        onNodeClick={onNodeClick}
-      >
-        <Background />
-        <Panel position="top-left">
-          <Sidebar />
-        </Panel>
-        <Controls />
-      </ReactFlow>
-      <BuilderMenu
-        selectedNode={selectedNode} 
-        onNodeUpdate={handleNodeUpdate}
-      />
-    </div>
+    <div className="container">
+      <div className="react-flow-container">
+          <ReactFlow
+            colorMode={theme}
+            proOptions={proOptions}
+            nodeTypes={nodeTypes}
+            defaultNodes={defaultNodes}
+            defaultEdges={defaultEdges}
+            defaultEdgeOptions={defaultEdgeOptions}
+            connectionLineType={ConnectionLineType.SmoothStep}
+            fitView
+            connectionMode={ConnectionMode.Loose}
+            panOnScroll={panOnScroll}
+            onDrop={onDrop}
+            snapToGrid={snapToGrid}
+            snapGrid={[10, 10]}
+            onDragOver={onDragOver}
+            zoomOnDoubleClick={zoomOnDoubleClick}
+            onNodeClick={onNodeClick}
+          >
+            <Background />
+            <Panel position="top-left">
+              <Sidebar />
+            </Panel>
+            <Controls />
+          </ReactFlow>
+        </div>
+        <BuilderMenu
+          selectedNode={selectedNode} 
+          onNodeUpdate={handleNodeUpdate}
+        />
+      </div>
   );
 }
 
