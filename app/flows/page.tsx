@@ -42,7 +42,13 @@ function FlowDisplay({ theme = "dark", snapToGrid = true, panOnScroll = true, zo
   const handleNodeUpdate = React.useCallback((nodeId: string, data: any) => {
     setNodes((nodes) =>
       nodes.map((node) =>
-        node.id === nodeId ? { ...node, data: { ...node.data, ...data } } : node
+        node.id === nodeId ? { 
+          ...node, 
+          data: { 
+            ...node.data, 
+            ...data 
+          } 
+        } : node
       )
     );
   }, [setNodes]);
@@ -75,7 +81,11 @@ function FlowDisplay({ theme = "dark", snapToGrid = true, panOnScroll = true, zo
     };
 
     setNodes((nodes) =>
-      (nodes.map((n) => ({ ...n, selected: false })) as ShapeNode[]).concat([
+      (nodes.map((n) => ({ 
+        ...n, 
+        selected: false 
+      })) as ShapeNode[]
+    ).concat([
         newNode,
       ])
     );

@@ -12,12 +12,15 @@ body,
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 23%;
+  grid-template-rows: 100%;
   height: 100vh;
 }
 
 .react-flow-container {
-  flex: 1;
+  grid-column: 1 / 2;
+  grid-row: 1;
 }
   
 .react-flow {

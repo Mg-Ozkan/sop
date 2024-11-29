@@ -1,8 +1,8 @@
 .buildermenu {
     --text: #0a0a0a;
+    grid-column: 2 / 3;
+    grid-row: 1;
 
-    width: 25%;
-    height: 100vh;
     background-color: white;
     color: var(--text);
     border-left: 1px solid #eee;
