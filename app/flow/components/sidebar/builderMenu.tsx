@@ -1,5 +1,5 @@
 import React from "react";
-import { ShapeNode } from "@/app/flows/components/shape/types/page";
+import { ShapeNode } from "@/app/flow/components/shape/types/page";
 
 import "./css/builderMenu.scss";
 

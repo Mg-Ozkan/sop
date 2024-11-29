@@ -8,9 +8,9 @@ import {
     useReactFlow,
 } from "@xyflow/react";
   
-import Shape from "@/app/flows/components/shape/page";
+import Shape from "@/app/flow/components/shape/page";
 import ShapeNodeToolbar from "../toolbar/page";
-import { type ShapeNode } from "@/app/flows/components/shape/types/page";
+import { type ShapeNode } from "@/app/flow/components/shape/types/page";
 import NodeLabel from "./label";
   
   // This will return the current dimensions of the node.
