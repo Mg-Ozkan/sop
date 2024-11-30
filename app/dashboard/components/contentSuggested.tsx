@@ -1,6 +1,6 @@
 import ProjectFetcher from './projectFetcher';
 import ProjectListing from './projectListing';
-import styles from "../page.module.scss";
+import "../page.scss";
 import { useRouter } from 'next/navigation';
 
 
@@ -15,20 +15,20 @@ export default function ContentSuggested() {
 	}
 
 	return (
-		<div className={styles["suggested-container"]}>
-			<h1 className={styles["suggested-title"]}>
+		<div className="suggested-container">
+			<h1 className="suggested-title">
 				Aanbevolen voor u
 			</h1>
-			<div className={styles["suggested-wrapper"]}>
-				<div className={styles["suggested-actions"]}>
-					<div className={styles["new-project-container"]} onClick={navigateToProject}>
-						<div className={styles["horizontal-plus"]} />
-						<div className={styles["vertical-plus"]} />
-						<p className={styles["new-project-title"]}>
+			<div className="suggested-wrapper">
+				<div className="suggested-actions">
+					<div className="new-project-container" onClick={navigateToProject}>
+						<div className="horizontal-plus" />
+						<div className="vertical-plus" />
+						<p className="new-project-title">
 							Nieuw project
 						</p>
 					</div>
-					<div className={styles["action-recent"]}>
+					<div className="action-recent">
 						<ProjectListing id={fetchReturn.projects[0].id} title={fetchReturn.projects[0].title} date={fetchReturn.projects[0].date} />
 					</div>
 				</div>

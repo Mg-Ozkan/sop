@@ -1,0 +1,23 @@
+:root {
+  --background-color: #FDFDFD;
+  --secondary-background-color: #F5F5F5;
+  --border-color: #B6BBC4;
+  --hover-border-color: #808080;
+  --primary-text-color: #161A30;
+  --secondary-text-color: black;
+  --input-background-color: #F5F5F5;
+  --input-border-color: #B6BBC4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #161A30;
+    --secondary-background-color: #1D2138;
+    --border-color: #31304D;
+    --hover-border-color: #4a4974;
+    --primary-text-color: #FDFDFD;
+    --secondary-text-color: white;
+    --input-background-color: #31304D;
+    --input-border-color: #FDFDFD;
+  }
+}

@@ -1,4 +1,4 @@
-import styles from "../page.module.scss";
+import "../page.scss";
 
 //temporary interface, must change to exact class once decided upon
 interface ProjectListingProps {
@@ -9,15 +9,15 @@ interface ProjectListingProps {
 
 export default function ProjectListing({ id, title, date }: ProjectListingProps) {
 	return (
-		<div className={styles["project-container"]}>
-			<div className={styles["project-wrapper"]}>
-				<div className={styles["project-image-wrapper"]}>
+		<div className="project-container">
+			<div className="project-wrapper">
+				<div className="project-image-wrapper">
 				</div>
-				<div className={styles["project-description-wrapper"]}>
-					<h1 className={styles["project-title"]}>
+				<div className="project-description-wrapper">
+					<h1 className="project-title">
 						{title}
 					</h1>
-					<p className={styles["project-date"]}>
+					<p className="project-date">
 						{date}
 					</p>
 				</div>

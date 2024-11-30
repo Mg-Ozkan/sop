@@ -2,10 +2,18 @@
     background-color: #FDFDFD;
 }
 
+.dark-mode .body {
+    background-color: #161A30;
+}
+
 .content {
     background-color: #FDFDFD;
     min-height: 92vh;
     min-width: 100vw;
+}
+
+.dark-mode .content {
+    background-color: #161A30;
 }
 
 .divider {
@@ -16,6 +24,10 @@
     border-radius: 0.25rem;
     height: 2px;
     margin: 0 30px 0 30px;
+}
+
+.dark-mode .divider {
+    background-color: #1D2138;
 }
 
 .new-project-container {
@@ -29,9 +41,19 @@
     transition: 0.3s;
 }
 
+.dark-mode .new-project-container {
+    background-color: #1D2138;
+    border-color: #31304D;
+}
+
 .new-project-container:hover {
     background-color: #F5F5F5;
     border-color: #808080;
+}
+
+.dark-mode .new-project-container:hover {
+    background-color: #1D2138;
+    border-color: #4a4974;
 }
 
 .horizontal-plus {
@@ -42,12 +64,20 @@
     position: absolute;
 }
 
+.dark-mode .horizontal-plus {
+    background-color: #FDFDFD;
+}
+
 .vertical-plus {
     background-color: #161A30;
     width: 6px;
     height: 64px;
     margin: 50px 0 0 98px;
     position: absolute;
+}
+
+.dark-mode .vertical-plus {
+    background-color: #FDFDFD;
 }
 
 .new-project-title {
@@ -58,6 +88,10 @@
     margin: 135px 0 0 50px;
     position: absolute;
     font-weight: bold;
+}
+
+.dark-mode .new-project-title {
+    color: #FDFDFD;
 }
 
 .suggested-actions {
@@ -74,6 +108,10 @@
     height: 200px;
 }
 
+.dark-mode .suggested-wrapper {
+    background-color: #1D2138;
+}
+
 .suggested-container {
     display: flex;
     flex-direction: column;
@@ -85,6 +123,10 @@
     color: #161A30;
 }
 
+.dark-mode .suggested-container h1 {
+    color: #FDFDFD;
+}
+
 .suggested-title {
     margin: 30px 0 10px 35px;
     font-weight: 100;
@@ -93,6 +135,10 @@
 
 .slider-title h1 {
     color: #161A30;
+}
+
+.dark-mode .slider-title h1 {
+    color: #FDFDFD;
 }
 
 .project-container {
@@ -109,9 +155,19 @@
     transition: 0.3s;
 }
 
+.dark-mode .project-container {
+    background-color: #161A30;
+    border-color: #31304D;
+}
+
 .project-container:hover {
     background-color: #F5F5F5;
     border-color: #808080;
+}
+
+.dark-mode .project-container:hover {
+    background-color: #1D2138;
+    border-color: #4a4974;
 }
 
 .project-wrapper {
@@ -127,6 +183,10 @@
     width: 196px;
 }
 
+.dark-mode .project-image-wrapper {
+    background-color: #1b1f39;
+}
+
 .project-description-wrapper {
     display: flex;
     flex-direction: column;
@@ -137,11 +197,19 @@
     margin-top: 10px;
 }
 
+.dark-mode .project-description-wrapper {
+    border-color: #1D2138;
+}
+
 .project-title {
     align-self: start; 
     color: #161A30;
     padding: 0 0 0 4px;
     font-size: 16px;
+}
+
+.dark-mode .project-title {
+    color: #FDFDFD;
 }
 
 .project-date {
@@ -153,23 +221,24 @@
     margin: 6px 0 0 0;
 }
 
+.dark-mode .project-date{
+    color: #FDFDFD;
+}
 
-
-
-
-
-//fix the following css shite
 
 .not-found-title {
-    color: black;
+    color: #161A30;
     display: flex;
     justify-self: center;
 }
 
+.dark-mode .not-found-title {
+    color: #FDFDFD;
+}
 
 .searchbar-input {
     all: unset;
-    color: black;
+    color: #161A30;
     display: block;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -179,6 +248,12 @@
     background-color: #F5F5F5;
     border: 2px solid #B6BBC4;
     font-family: 'Roboto Condensed';
+}
+
+.dark-mode .searchbar-input {
+    color: #FDFDFD;
+    background-color: #31304D;
+    border: 2px solid #FDFDFD
 }
 
 .recent-projects-container {
