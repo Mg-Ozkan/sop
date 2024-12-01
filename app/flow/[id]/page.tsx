@@ -1,4 +1,4 @@
-import { FlowContainer } from "@/components/management/flows/FlowContainer";
+import { FlowContainer } from "@/components/management/flows/flowContainer";
 import { ReactFlowProvider } from "@xyflow/react";
 
 export default function FlowPage({ params }: { params: { id: number | null } }) {

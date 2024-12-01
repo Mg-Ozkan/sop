@@ -30,6 +30,7 @@ const defaultEdgeOptions: DefaultEdgeOptions = {
 const proOptions = { account: "paid-pro", hideAttribution: true };
 
 export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) => {
+  const [selectedDefinition, setSelectedDefinition] = React.useState<FlowDefinition | null>(definition);
   const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
   const [selectedNode, setSelectedNode] = React.useState<ShapeNode | null>(null);
 
@@ -37,7 +38,11 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
     setSelectedNode(node);
   }, []);
 
-  const handleNodeUpdate = React.useCallback((nodeId: string, data: any) => {
+  const onDefinitionUpdate = React.useCallback((newDefinitionData: Partial<FlowDefinition>) => {
+    setSelectedDefinition((prev) => prev ? { ...prev, ...newDefinitionData } : null);
+  }, []);
+
+  const onNodeUpdate = React.useCallback((nodeId: string, data: any) => {
     setNodes((nodes) =>
       nodes.map((node) =>
         node.id === nodeId ? { 
@@ -96,8 +101,8 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
             colorMode="dark"
             proOptions={proOptions}
             nodeTypes={nodeTypes}
-            defaultNodes={definition?.nodes || []}
-            defaultEdges={definition?.edges || []}
+            defaultNodes={selectedDefinition?.nodes || []}
+            defaultEdges={selectedDefinition?.edges || []}
             defaultEdgeOptions={defaultEdgeOptions}
             connectionLineType={ConnectionLineType.SmoothStep}
             fitView
@@ -118,10 +123,11 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
           </ReactFlow>
         </div>
         <BuilderMenu
-          selectedNode={selectedNode} 
-          onNodeUpdate={handleNodeUpdate}
-          //definition={definition}
-          //onBack={onBack}
+          definition={selectedDefinition}
+          selectedNode={selectedNode}
+          onDefinitionUpdate={onDefinitionUpdate}
+          onNodeUpdate={onNodeUpdate}
+          onBack={onBack}
         />
       </div>
   );
