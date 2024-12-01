@@ -1,5 +1,6 @@
 import { type Edge } from "@xyflow/react";
 import { type ShapeNode } from "./components/shape/types/page";
+import { type FlowDefinition } from "@/components/types/FlowDefinition";
 
 export const defaultNodes: ShapeNode[] = [
   {
@@ -131,4 +132,14 @@ export const defaultEdges: Edge[] = [
     sourceHandle: "bottom",
     targetHandle: "top",
   },
+];
+
+export const defaultDefinition: FlowDefinition[] = [
+  {
+    id: 1,
+    displayName: "Flow 1",
+    isEnabled: true,
+    nodes: defaultNodes,
+    edges: defaultEdges
+  }
 ];
