@@ -1,88 +1,89 @@
 import { type Edge } from "@xyflow/react";
 import { type ShapeNode } from "./components/shape/types/page";
+import { type FlowDefinition } from "@/components/types/FlowDefinition";
 
 export const defaultNodes: ShapeNode[] = [
   {
     id: "1",
     type: "shape",
-    position: { x: 0, y: 0 },
+    position: { x: -200, y: 0 },
     style: { width: 100, height: 50 },
     data: {
-      type: "round-rectangle",
-      color: "#3F8AE2",
-      name: "Start",
+      type: "circle",
+      color: "#663366",
+      name: "Implementatie",
     },
     selected: false,
   },
   {
     id: "2",
     type: "shape",
-    position: { x: 0, y: 100 },
+    position: { x: -200, y: 90 },
     style: { width: 100, height: 50 },
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
-      name: "Analyse",
+      name: "OO Technieken",
     },
     selected: false,
   },
   {
     id: "3",
     type: "shape",
-    position: { x: 0, y: 200 },
+    position: { x: -200, y: 180 },
     style: { width: 100, height: 50 },
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
-      name: "Node 3",
+      name: "Code kwaliteit",
     },
     selected: false,
   },
   {
     id: "4",
     type: "shape",
-    position: { x: 0, y: 300 },
-    style: { width: 100, height: 50 },
+    position: { x: -235, y: 270 },
+    style: { width: 170, height: 50 },
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
-      name: "Node 4",
+      name: "Klassendiagram implementeren",
     },
     selected: false,
   },
   {
     id: "5",
     type: "shape",
-    position: { x: 0, y: 400 },
+    position: { x: -200, y: 360 },
     style: { width: 100, height: 50 },
     data: {
       type: "round-rectangle",
       color: "#3F8AE2",
-      name: "Node 5",
+      name: "SQL",
     },
     selected: false,
   },
   {
     id: "6",
     type: "shape",
-    position: { x: -200, y: 0 },
-    style: { width: 60, height: 60 },
+    position: { x: -380, y: 360 },
+    style: { width: 120, height: 50 },
     data: {
-      type: "circle",
-      color: "#438D57",
-      name: "Node 6",
+      type: "round-rectangle",
+      color: "#3F8AE2",
+      name: "Verdieping T-SQL",
     },
-    selected: false,    
+    selected: false,
   },
   {
     id: "7",
     type: "shape",
-    position: { x: -200, y: 100 },
-    style: { width: 60, height: 60 },
+    position: { x: -200, y: 450 },
+    style: { width: 100, height: 50 },
     data: {
-      type: "rectangle",
-      color: "#438D57",
-      name: "Node 7",
+      type: "round-rectangle",
+      color: "#3F8AE2",
+      name: "Webtechnieken",
     },
     selected: false,
   },
@@ -118,10 +119,27 @@ export const defaultEdges: Edge[] = [
     targetHandle: "top",
   },
   {
-    id: "6->7",
-    source: "6",
+    id: "5->6",
+    source: "5",
+    target: "6",
+    sourceHandle: "left",
+    targetHandle: "right",
+  },
+  {
+    id: "5->7",
+    source: "5",
     target: "7",
     sourceHandle: "bottom",
     targetHandle: "top",
   },
+];
+
+export const defaultDefinition: FlowDefinition[] = [
+  {
+    id: 1,
+    displayName: "Flow 1",
+    isEnabled: true,
+    nodes: defaultNodes,
+    edges: defaultEdges
+  }
 ];
