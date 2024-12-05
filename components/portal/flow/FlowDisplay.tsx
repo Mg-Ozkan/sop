@@ -1,8 +1,21 @@
 "use client";
 
 import React from "react";
+import { 
+  ReactFlow, 
+  Background, 
+  ReactFlowProvider, 
+  ConnectionLineType, 
+  MarkerType, 
+  ConnectionMode, 
+  Panel, 
+  NodeTypes, 
+  DefaultEdgeOptions, 
+  Controls, 
+  useReactFlow, 
+  OnSelectionChangeParams 
+} from "@xyflow/react";
 import { DragEvent, DragEventHandler } from "react";
-import { ReactFlow, Background, ReactFlowProvider, ConnectionLineType, MarkerType, ConnectionMode, Panel, NodeTypes, DefaultEdgeOptions, Controls, useReactFlow } from "@xyflow/react";
 import ShapeNodeComponent from "./components/shape-node/page";
 import Sidebar from "./components/sidebar/page";
 import { ShapeNode, ShapeType } from "./components/shape/types/page";
@@ -31,30 +44,55 @@ const proOptions = { account: "paid-pro", hideAttribution: true };
 
 export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) => {
   const [selectedDefinition, setSelectedDefinition] = React.useState<FlowDefinition | null>(definition);
-  const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
   const [selectedNode, setSelectedNode] = React.useState<ShapeNode | null>(null);
+  const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
 
-  const onNodeClick = React.useCallback((event: React.MouseEvent, node: ShapeNode) => {
-    setSelectedNode(node);
-  }, []);
+  const onSelectionChange = React.useCallback(
+    (params: OnSelectionChangeParams) => {
+      if (params.nodes && params.nodes.length > 0) {
+        setSelectedNode(params.nodes[0] as ShapeNode);
+      } else {
+        setSelectedNode(null);
+      }
+    },
+    [setSelectedNode]
+  );
 
   const onDefinitionUpdate = React.useCallback((newDefinitionData: Partial<FlowDefinition>) => {
     setSelectedDefinition((prev) => prev ? { ...prev, ...newDefinitionData } : null);
-  }, []);
+  }, [setSelectedDefinition]);
 
-  const onNodeUpdate = React.useCallback((nodeId: string, data: any) => {
-    setNodes((nodes) =>
-      nodes.map((node) =>
-        node.id === nodeId ? { 
-          ...node, 
-          data: { 
-            ...node.data, 
-            ...data 
-          } 
-        } : node
-      )
-    );
-  }, [setNodes]);
+  const onNodeUpdate = React.useCallback(
+    (nodeId: string, data: any) => {
+      setNodes((nodes) =>
+        nodes.map((node) =>
+          node.id === nodeId
+            ? {
+                ...node,
+                data: {
+                  ...node.data,
+                  ...data,
+                },
+              }
+            : node
+        )
+      );
+  
+      // Update selectedNode if it's the one being updated
+      setSelectedNode((prevSelectedNode) =>
+        prevSelectedNode && prevSelectedNode.id === nodeId
+          ? {
+              ...prevSelectedNode,
+              data: {
+                ...prevSelectedNode.data,
+                ...data,
+              },
+            }
+          : prevSelectedNode
+      );
+    },
+    [setNodes, setSelectedNode]
+  );
 
   const onDragOver = (evt: DragEvent<HTMLDivElement>) => {
     evt.preventDefault();
@@ -79,6 +117,9 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
         type,
         color: "#3F8AE2",
         name: type,
+        description: "Description",
+        url: "https://www.fontys.nl",
+        isActive: true,
       },
       selected: false,
     };
@@ -86,7 +127,7 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
     setNodes((nodes) =>
       (nodes.map((n) => ({ 
         ...n, 
-        selected: false 
+        selected: false
       })) as ShapeNode[]
     ).concat([
         newNode,
@@ -113,7 +154,7 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
             snapGrid={[10, 10]}
             onDragOver={onDragOver}
             zoomOnDoubleClick={false}
-            onNodeClick={onNodeClick}
+            onSelectionChange={onSelectionChange}
           >
             <Background />
             <Panel position="top-left">
