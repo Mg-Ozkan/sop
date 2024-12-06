@@ -1,13 +1,13 @@
-import ProjectFetcher from './projectFetcher';
+import Fetcher from '../Fetcher';
 import ProjectListing from './projectListing';
-import "../page.scss";
+import "../../page.scss";
 import { useRouter } from 'next/navigation';
 
 
 
 
 export default function ContentSuggested() {
-	const fetchReturn = ProjectFetcher({userId: 1, fetchMostRecent: true});
+	const fetchReturn = Fetcher(false);
 	const router = useRouter();
 
 	const navigateToProject = () => {
@@ -29,7 +29,7 @@ export default function ContentSuggested() {
 						</p>
 					</div>
 					<div className="action-recent">
-						<ProjectListing id={fetchReturn.projects[0].id} title={fetchReturn.projects[0].title} date={fetchReturn.projects[0].date} />
+						<ProjectListing id={fetchReturn.data[0].id} title={fetchReturn.data[0].title} date={fetchReturn.data[0].date} />
 					</div>
 				</div>
 			</div>

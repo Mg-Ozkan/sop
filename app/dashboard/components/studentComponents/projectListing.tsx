@@ -1,4 +1,4 @@
-import "../page.scss";
+import "../../page.scss";
 
 //temporary interface, must change to exact class once decided upon
 interface ProjectListingProps {

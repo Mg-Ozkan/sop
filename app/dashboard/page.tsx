@@ -1,12 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import ContentSuggested from './components/contentSuggested'
-import ContentRecent from './components/contentRecent';
+import TeacherDashboard from './components/teacherDashboard';
+import StudentDashboard from './components/studentDashboard';
 import "./page.scss";
+import RoleToggle from './components/toggles/role-toggle';
+import ThemeToggle from './components/toggles/theme-toggle';
 
 export default function Dashboard(): JSX.Element {
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isTeacher, setIsTeacher] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -21,17 +24,20 @@ export default function Dashboard(): JSX.Element {
     }, []);
 
     const toggleTheme = () => setIsDarkMode((prev) => !prev);
+    const toggleRole = () => setIsTeacher((prev) => !prev);
+
 
     return (
         <div className={isDarkMode ? "dark-mode" : ""}>
-            <button onClick={toggleTheme}>
-                {isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-            </button>
-            <div className={"content"}>
-                <ContentSuggested />
-                <div className={"divider"} />
-                <ContentRecent />
+            <div className="toggles-container">
+                <RoleToggle onRoleChange={toggleRole} isTeacher={isTeacher} />
+                <ThemeToggle onThemeChange={toggleTheme} isDarkMode={isDarkMode} />
             </div>
+            {isTeacher ? (
+                <TeacherDashboard />
+            ) : (
+                <StudentDashboard />
+            )}
         </div>
-    );
+    )
 }

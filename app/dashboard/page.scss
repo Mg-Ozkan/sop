@@ -116,7 +116,6 @@
     display: flex;
     flex-direction: column;
     height: 45vh;
-    margin-top: 50px;
 }
 
 .suggested-container h1 {
@@ -257,7 +256,7 @@
 }
 
 .recent-projects-container {
-    height: 48vh;
+    height: 47vh;
     display: flex;
     flex-direction: column;
 }
@@ -290,4 +289,253 @@
     font-weight: 100;
     font-family: 'Roboto Condensed';
     margin: 5px 0 5px 0;
+}
+
+
+
+//teacherdashboard
+.current-content {
+    background-color: #F5F5F5;
+    margin-top: 10px;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    width: 1240px;
+    height: 340px;
+    border-radius: 2rem;
+}
+
+.dark-mode .current-content {
+    background-color: #1D2138;
+}
+
+.listview {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listview-item {
+    border-radius: 0.5rem;
+    border-width: 2px;
+    border: 2px solid #B6BBC4;
+    margin: 5px 0 5px 0;
+    height: 30px;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dark-mode .listview-item {
+    border: 2px solid #FDFDFD;
+    background-color: #161A30;
+}
+
+.listview-item:hover {
+    border:2px solid #161A30;
+    background-color: #f1f1f1;
+}
+
+.dark-mode .listview-item:hover {
+    border: 2px solid #F5F5F5;
+    background-color: #4a4974;
+}
+
+.listview-container {
+    width: 1200px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 0px 10px 10px 10px;
+    background-color: #e7e7e7;
+    border-radius: 1rem;
+}
+
+.dark-mode .listview-container {
+    background-color: #1D2138;
+}
+
+.listview-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.listview-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+}
+
+.listview-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.listview-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.listview-header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #e7e7e7;
+    display: flex;
+    justify-content: start;
+    border-bottom: 2px solid #808080;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.dark-mode .listview-header {
+    background-color: #1D2138;
+}
+
+.semester {
+    width: 120px;
+}
+
+.title {
+    width: 600px;
+}
+
+.date {
+    width: 200px;
+}
+
+.state {
+    width: 100px;;
+}
+
+.edit {
+    margin-left: 20px;
+}
+
+.h3 {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.item-wrapper {
+    display: flex;
+}
+
+.item-wrapper p {
+    color: #161A30;
+}
+
+.dark-mode .item-wrapper p {
+    color: #FDFDFD;
+}
+
+.listview-header h3 {
+    user-select: none;
+    cursor: pointer;
+}
+
+.listview-header h3 svg {
+    transition: transform 0.3s ease;
+}
+
+.listview-header h3:hover {
+    color: #31304D;
+}
+
+.dark-mode .listview-header h3:hover {
+    color: #b9bbbe;
+}
+
+.listview-header h3 svg:hover {
+    transform: scale(1.2);
+}
+
+.sort-icon {
+    position: relative;
+    top: 3px;
+    width: 16px;
+    height: 16px;
+}
+
+
+.currentSOP-title {
+    font-family: 'roboto condensed';
+    margin-bottom: 10px;
+}
+
+.currentSOP-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.create-new-button {
+    border-radius: 2rem;
+    border-width: 2px;
+    border: 2px solid #B6BBC4;
+    margin: 15px 70px 5px 0;
+    height: 46px;
+    width: 240px;
+    background-color: #f1f1f1;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: 0px;
+}
+
+.create-new-title {
+    color: #161A30;
+}
+
+.dark-mode .create-new-title {
+    color: #FDFDFD;
+}
+
+.create-new-button:hover {
+    cursor: pointer;
+    border: 2px solid #161A30;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.dark-mode .create-new-button {
+    background-color: #161A30;
+    border: 2px solid #FDFDFD;
+}
+
+.dark-mode .create-new-button:hover {
+    background-color: #4a4974;
+}
+
+.listview-header h3 {
+    color:#161A30;
+}
+.listview-header h3:hover {
+    color: #4a4974;
+}
+
+.dark-mode .listview-header h3 {
+    color: #FDFDFD;
+}
+
+.currentSOP-title {
+    color:#161A30;
+    font-weight: bold;
+}
+
+.dark-mode .currentSOP-title {
+    color: #FDFDFD;
+}
+
+.toggles-container {
+    margin: 5px 5px 3px 5px;
+}
+
+.theme-toggle {
+    margin-left: 5px;
 }

@@ -1,11 +1,12 @@
 import Slider from './slider';
-import FilterProjects from './projectFilter';
-import ProjectFetcher from './projectFetcher';
-import '../page.scss';
+import Fetcher from '../Fetcher';
+import '../../page.scss';
+import FilterComponent from '../projectFilter';
+import { Project } from '../Fetcher';
 
 export default function ContentRecent() {
-    const fetchReturn = ProjectFetcher({ userId: 1, fetchMostRecent: false});
-    const { filteredProjects, filter, handleFilterChange } = FilterProjects({projects: fetchReturn.projects});
+    const fetchReturn = Fetcher(true);
+    const { filteredData, filter, loading, handleFilterChange } = FilterComponent<Project>({data: fetchReturn.data, filterKey: 'title'});
 
 
     return (
@@ -30,8 +31,8 @@ export default function ContentRecent() {
                     </h1>
                 </div>
                 <div className="slider-container">
-                    {filteredProjects.length > 0 ? (
-                        <Slider projects={filteredProjects} />
+                    {filteredData.length > 0 ? (
+                        <Slider projects={filteredData} />
                     ) : (
                         <h1 className="not-found-title">Geen recente projecten gevonden</h1>
                     )}
