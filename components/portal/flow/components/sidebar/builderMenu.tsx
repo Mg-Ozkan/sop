@@ -26,6 +26,30 @@ export default function BuilderMenu({ definition, selectedNode, onDefinitionUpda
     }
   };
 
+const onNodeNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (selectedNode && onNodeUpdate) {
+    onNodeUpdate(selectedNode.id, {
+      name: event.target.value,
+    });
+  }
+};
+
+const onNodeURLChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  if (selectedNode && onNodeUpdate) {
+    onNodeUpdate(selectedNode.id, {
+      url: event.target.value,
+    });
+  }
+};
+
+const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  if (selectedNode && onNodeUpdate) {
+    onNodeUpdate(selectedNode.id, {
+      description: event.target.value,
+    });
+  }
+};
+
   const onEnabledToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (definition && onDefinitionUpdate) {
       onDefinitionUpdate({
@@ -37,39 +61,64 @@ export default function BuilderMenu({ definition, selectedNode, onDefinitionUpda
 
   return (
     <div className="buildermenu">
-      <h3>Software Ontwikkel Proces</h3>
-      <Box sx={{ p: 2 }}>
-        <TextField
-          fullWidth
-          label="Display Name"
-          value={definition?.displayName || ''}
-          onChange={onDisplayNameChange}
-          margin="normal"
-          variant="outlined"
-          size="small"
-        />
+      <h3>Competentie</h3>
+      <Box sx={{ p: 3 }}>
+      <TextField
+        fullWidth
+        label="Display Name"
+        value={definition?.displayName || ''}
+        onChange={onDisplayNameChange}
+        margin="normal"
+        variant="outlined"
+        size="small"
+      />
+  
+      <TextField
+        fullWidth
+        label="Node Name"
+        value={selectedNode?.data.name || ''}
+        onChange={onNodeNameChange}
+        margin="normal"
+        variant="outlined"
+        size="small"
+      />
+
+      <TextField
+        fullWidth
+        label="URL"
+        value={selectedNode?.data.url || ''}
+        onChange={onNodeURLChange}
+        margin="normal"
+        variant="outlined"
+        size="small"
+      />
 
       <TextField
         fullWidth
         label="Description"
         multiline
         rows={4}
-        value={selectedNode?.data.name || ''}
+        value={selectedNode?.data.description || ''}
+        onChange={onNodeDescriptionChange}
         margin="normal"
         variant="outlined"
       />
 
-        <h4>Active</h4>
-        <FormControlLabel className="buildermenu-button"
-          label={definition?.isEnabled ? "Enabled" : "Disabled"}
-          control={
-            <Switch
-              checked={definition?.isEnabled || false}
-              onChange={onEnabledToggle}
-              color="primary"
-            />
-          }
-        />
+      <h4>Active</h4>
+      <FormControlLabel className="buildermenu-button"
+        label={definition?.isEnabled ? "Enabled" : "Disabled"}
+        control={
+          <Switch
+            checked={definition?.isEnabled || false}
+            onChange={onEnabledToggle}
+            color="primary"
+          />
+        }
+      />
+      {!selectedNode ?  (
+        // Message or placeholder when no node is selected
+        <div>Please select a node to edit its properties.</div>
+      ) : null}
       </Box>
     </div>
   );
