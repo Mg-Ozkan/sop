@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
 
 import "./css/builderMenu.scss";
+import { Button } from "@mui/material";
 
 type BuilderMenuProps = {
   definition: FlowDefinition | null;
@@ -61,21 +62,20 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
 
   return (
     <div className="buildermenu">
-      <h3>Competentie</h3>
       <Box sx={{ p: 3 }}>
       <TextField
         fullWidth
-        label="Display Name"
+        label="Competentienaam"
         value={definition?.displayName || ''}
         onChange={onDisplayNameChange}
         margin="normal"
         variant="outlined"
         size="small"
       />
-  
+
       <TextField
         fullWidth
-        label="Node Name"
+        label="Node naam"
         value={selectedNode?.data.name || ''}
         onChange={onNodeNameChange}
         margin="normal"
@@ -95,7 +95,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
 
       <TextField
         fullWidth
-        label="Description"
+        label="Beschrijving"
         multiline
         rows={4}
         value={selectedNode?.data.description || ''}
@@ -103,21 +103,27 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
         margin="normal"
         variant="outlined"
       />
+        <h4>Active</h4>
+      <div className="buildermenu-button">
+        <FormControlLabel
+          label={definition?.isEnabled ? "Aan" : "Uit"}
+          control={
+            <Switch
+              checked={definition?.isEnabled || false}
+              onChange={onEnabledToggle}
+              color="primary"
+            />
+          }
+        />
+        <Button
+          onClick={onBack} 
+          variant="contained" 
+          color="primary"> Save
+        </Button>
+      </div>
 
-      <h4>Active</h4>
-      <FormControlLabel className="buildermenu-button"
-        label={definition?.isEnabled ? "Enabled" : "Disabled"}
-        control={
-          <Switch
-            checked={definition?.isEnabled || false}
-            onChange={onEnabledToggle}
-            color="primary"
-          />
-        }
-      />
       {!selectedNode ?  (
-        // Message or placeholder when no node is selected
-        <div>Please select a node to edit its properties.</div>
+        <div>Selecteer een node om aan te passen.</div>
       ) : null}
       </Box>
     </div>
