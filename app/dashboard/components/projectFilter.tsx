@@ -6,38 +6,39 @@ interface Project {
     date: string;
 }
 
-interface FilterProjectsProps {
-    projects: Project[];
+interface FilterProps<T> {
+    data: T[];
+    filterKey: keyof T;
 }
 
-interface FilteredProjectsResult {
+interface FilterResult<T> {
     loading: boolean;
     filter: string;
-    filteredProjects: Project[];
+    filteredData: T[];
     handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function FilterProjects({ projects }: FilterProjectsProps): FilteredProjectsResult {
+export default function FilterComponent<T extends Record<string, any>>({ data, filterKey }: FilterProps<T>): FilterResult<T> {
     const [filter, setFilter] = useState<string>('');
     const [loading, setLoading] = useState<boolean>(false);
-    const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+    const [filteredData, setFilterData] = useState<T[]>([]);
 
     useEffect(() => {
         setLoading(true);
         const timeout = setTimeout(() => {
-            const filtered = projects.filter((project: Project) =>
-                project.title.toLowerCase().includes(filter.toLowerCase())
+            const filtered = data.filter((item) =>
+                String(item[filterKey]).toLowerCase().includes(filter.toLowerCase())
             );
-            setFilteredProjects(filtered);
+            setFilterData(filtered);
             setLoading(false);
         }, 300);
         
         return () => clearTimeout(timeout);
-    }, [projects, filter]);
+    }, [data, filter, filterKey]);
 
     const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilter(e.target.value);
     };
 
-    return { filteredProjects, filter, loading, handleFilterChange };
+    return { filteredData, filter, loading, handleFilterChange };
 }

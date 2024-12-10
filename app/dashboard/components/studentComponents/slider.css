@@ -14,6 +14,10 @@
     background-color: #808080;
 }
 
+.dark-mode .button:hover {
+    background-color: #4a4974;
+}
+
 .custom-arrow-left {
     position: absolute;
     height: 180px;
@@ -24,6 +28,10 @@
     background-color: #B6BBC4;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+.dark-mode .custom-arrow-left {
+    background-color: #31304D;
 }
 
 .custom-arrow-right {
@@ -38,6 +46,10 @@
     border-bottom-right-radius: 10px;
 }
 
+.dark-mode .custom-arrow-right {
+    background-color: #31304D;
+}
+
 .custom-arrow-left__arrow {
     position: absolute;
     top: 83px;
@@ -48,6 +60,10 @@
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-right: 10px solid whitesmoke;
+}
+
+.dark-mode .custom-arrow-left__arrow {
+    border-right: 10px solid #161A30;
 }
 
 .custom-arrow-right__arrow {
@@ -62,12 +78,19 @@
     border-left: 10px solid whitesmoke;
 }
 
+.dark-mode .custom-arrow-right__arrow {
+    border-left: 10px solid #161A30;
+}
 
 .slider-wrapper {
     position: relative;
     background-color: #F5F5F5;
     padding-inline: 10px;
     border-radius: 10px;
+}
+
+.dark-mode .slider-wrapper {
+    background-color: #1D2138;
 }
 
 @media (max-width: 3000px) {
