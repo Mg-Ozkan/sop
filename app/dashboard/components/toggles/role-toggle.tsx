@@ -9,7 +9,7 @@ interface RoleToggleProps {
 
 export default function RoleToggle( { onRoleChange, isTeacher } : RoleToggleProps) {
 
-  const toggleTheme = () => {
+  const toggleRole = () => {
     isTeacher = !isTeacher;
     onRoleChange(); 
   };
@@ -17,7 +17,7 @@ export default function RoleToggle( { onRoleChange, isTeacher } : RoleToggleProp
   return (
     <Toggle
       checked={isTeacher}
-      onChange={onRoleChange}
+      onChange={toggleRole}
       icons={{ checked: "👨‍🏫", unchecked: "👩‍💻" }}
       aria-label="Role toggle"
       className="role-toggle"

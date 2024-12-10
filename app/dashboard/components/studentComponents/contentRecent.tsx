@@ -1,7 +1,7 @@
 import Slider from './slider';
 import Fetcher from '../Fetcher';
 import '../../page.scss';
-import FilterComponent from '../projectFilter';
+import FilterComponent from '../Filter';
 import { Project } from '../Fetcher';
 
 export default function ContentRecent() {
