@@ -1,5 +1,5 @@
 import SidebarItem from "./sidebar-item";
-import { ShapeComponents, ShapeType } from "@/app/flows/components/shape/types/page";
+import { ShapeComponents, ShapeType } from "@/components/portal/flow/components/shape/types/page";
 
 import "./css/page.scss";
 

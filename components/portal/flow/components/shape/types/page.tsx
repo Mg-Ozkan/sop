@@ -25,5 +25,7 @@ export type ShapeNode = Node<{
   type: ShapeType;
   color: string;
   name: string;
-  isActive?: boolean;
+  description: string;
+  url: string;
+  isActive: boolean;
 }>;

@@ -10,6 +10,18 @@ body,
   height: 100%;
   margin: 0;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: auto 23%;
+  grid-template-rows: 100%;
+  height: 100vh;
+}
+
+.react-flow-container {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
   
 .react-flow {
   --background: #e2e8f0;
@@ -66,8 +78,4 @@ body,
 .react-flow__handle,
 .react-flow__resize-control.handle {
   border: 1px solid var(--background);
-}
-
-.flow-container {
-  display: contents;
 }

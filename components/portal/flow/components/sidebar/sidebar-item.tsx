@@ -1,8 +1,8 @@
 "use client";
 
 import { type DragEvent, useRef } from "react";
-import Shape from "@/app/flows/components/shape/page";
-import { type ShapeType } from "@/app/flows/components/shape/types/page";
+import Shape from "@/components/portal/flow/components/shape/page";
+import { type ShapeType } from "@/components/portal/flow/components/shape/types/page";
 
 import "./css/sidebar-item.scss";
 
