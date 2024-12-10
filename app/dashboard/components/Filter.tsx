@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-interface Project {
-    id: number;
-    title: string;
-    date: string;
-}
-
 interface FilterProps<T> {
     data: T[];
     filterKey: keyof T;

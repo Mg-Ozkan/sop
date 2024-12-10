@@ -1,16 +1,8 @@
 import Fetcher from "../Fetcher";
-import FilterComponent from "../projectFilter";
+import FilterComponent from "../Filter";
 import ListviewItem from "./listviewItem";
 import { Sop } from "../Fetcher";
 import useSort from "../Sorter";
-
-
-
-
-interface SortConfig {
-  key: keyof Sop;
-  ascending: boolean;
-}
 
 
 export default function Listview() {

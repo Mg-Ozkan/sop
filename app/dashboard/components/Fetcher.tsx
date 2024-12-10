@@ -1,6 +1,7 @@
 import mockDataStudent from './mockDataStudent.json';
 import mockDataTeacher from './mockDataTeacher.json';
 
+
 //reflect uml class once definitive
 export interface Project {
 	id: number;
@@ -20,6 +21,7 @@ interface FetcherResult<T> {
 	data: T[];
 	loading: boolean;
 }
+
 
 export default function Fetcher<T extends Project | Sop>(student: boolean) : FetcherResult<T> {
 	if (student) {
