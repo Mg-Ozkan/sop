@@ -19,16 +19,16 @@ interface FlowListProps {
 export const FlowList: React.FC<FlowListProps> = ({ definitions, onEdit, onAdd, onDelete }) => {
   const columns: GridColDef[] = [
     { field: "id", headerName: "ID", width: 100 },
-    { field: "displayName", headerName: "Display Name", flex: 1 },
+    { field: "displayName", headerName: "Competentie Naam", flex: 1 },
     {
       field: "isEnabled",
-      headerName: "Enabled",
+      headerName: "Actief",
       width: 150,
-      renderCell: (params) => (params.value ? "Yes" : "No"),
+      renderCell: (params) => (params.value ? "Ja" : "Nee"),
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: "Acties",
       width: 150,
       sortable: false,
       filterable: false,

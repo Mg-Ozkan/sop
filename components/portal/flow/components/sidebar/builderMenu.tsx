@@ -65,7 +65,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
       <Box sx={{ p: 3 }}>
       <TextField
         fullWidth
-        label="Display Name"
+        label="Competentie naam"
         value={definition?.displayName || ''}
         onChange={onDisplayNameChange}
         margin="normal"
@@ -75,7 +75,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
   
       <TextField
         fullWidth
-        label="Node Name"
+        label="Node naam"
         value={selectedNode?.data.name || ''}
         onChange={onNodeNameChange}
         margin="normal"
@@ -95,7 +95,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
 
       <TextField
         fullWidth
-        label="Description"
+        label="Omschrijving"
         multiline
         rows={4}
         value={selectedNode?.data.description || ''}
@@ -104,9 +104,9 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
         variant="outlined"
       />
 
-      <h4>Active</h4>
+      <h4>Actief</h4>
       <FormControlLabel className="buildermenu-button"
-        label={definition?.isEnabled ? "Enabled" : "Disabled"}
+        label={definition?.isEnabled ? "Ingeschakeld" : "Uitgeschakeld"}
         control={
           <Switch
             checked={definition?.isEnabled || false}
@@ -117,7 +117,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
       />
       {!selectedNode ?  (
         // Message or placeholder when no node is selected
-        <div>Please select a node to edit its properties.</div>
+        <div>Selecteer een node om het aan te passen.</div>
       ) : null}
       </Box>
     </div>

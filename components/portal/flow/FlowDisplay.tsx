@@ -119,7 +119,7 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
         type,
         color: "#3F8AE2",
         name: type,
-        description: "Description",
+        description: "Omschrijving",
         url: "https://www.fontys.nl",
         isActive: true,
       },

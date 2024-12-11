@@ -158,16 +158,23 @@ export const defaultEdges: Edge[] = [
 export const defaultDefinition: FlowDefinition[] = [
   {
     id: 1,
-    displayName: "Competentie filled in",
+    displayName: "Competentie Semester 1",
     isEnabled: true,
     nodes: defaultNodes,
     edges: defaultEdges
   },
   {
     id: 2,
-    displayName: "Competentie Semester  2",
+    displayName: "Competentie Semester 2",
     isEnabled: true,
     nodes: [],
     edges: []
-  }
+  },
+  {
+    id: 3,
+    displayName: "Competentie Semester 3",
+    isEnabled: true,
+    nodes: [],
+    edges: []
+  },
 ];
