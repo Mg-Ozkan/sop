@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
 
 import "./css/builderMenu.scss";
+import { Button } from "@mui/material";
 
 type BuilderMenuProps = {
   definition: FlowDefinition | null;
@@ -61,7 +62,6 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
 
   return (
     <div className="buildermenu">
-      <h3>Competentie</h3>
       <Box sx={{ p: 3 }}>
       <TextField
         fullWidth
@@ -72,9 +72,10 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
         variant="outlined"
         size="small"
       />
-  
+
       <TextField
         fullWidth
+        label="Node naam"
         label="Node naam"
         value={selectedNode?.data.name || ''}
         onChange={onNodeNameChange}
@@ -95,7 +96,7 @@ const onNodeDescriptionChange = (event: React.ChangeEvent<{ value: unknown }>) =
 
       <TextField
         fullWidth
-        label="Omschrijving"
+        label="Beschrijving"
         multiline
         rows={4}
         value={selectedNode?.data.description || ''}
