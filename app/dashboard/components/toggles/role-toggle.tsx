@@ -1,0 +1,26 @@
+import React, { useState, useEffect } from "react";
+import Toggle from "react-toggle";
+import "react-toggle/style.css"; 
+
+interface RoleToggleProps {
+  onRoleChange: () => void; 
+  isTeacher: boolean;
+}
+
+export default function RoleToggle( { onRoleChange, isTeacher } : RoleToggleProps) {
+
+  const toggleRole = () => {
+    isTeacher = !isTeacher;
+    onRoleChange(); 
+  };
+
+  return (
+    <Toggle
+      checked={isTeacher}
+      onChange={toggleRole}
+      icons={{ checked: "👨‍🏫", unchecked: "👩‍💻" }}
+      aria-label="Role toggle"
+      className="role-toggle"
+    />
+  );
+};

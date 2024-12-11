@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "semester": 1,
+    "title": "This is SOP number 1",
+    "date": "10-01-2024",
+    "active": true 
+  },
+  {
+    "id": 2,
+    "semester": 2,
+    "title": "Mwuahahahahaahahaha",
+    "date": "16-01-2024",
+    "active": true
+  },
+  {
+    "id": 3,
+    "semester": 4,
+    "title": "Does this work?",
+    "date": "18-02-2024",
+    "active": false
+  },
+  {
+    "id": 4,
+    "semester": 4,
+    "title": "What did the fox say?",
+    "date": "21-02-2024",
+    "active": true 
+  },
+  {
+    "id": 5,
+    "semester": 3,
+    "title": "Dingdingding dingding",
+    "date": "21-02-2024",
+    "active": false
+  },
+  {
+    "id": 6,
+    "semester": 1,
+    "title": "Searching far and wide",
+    "date": "30-03-2024",
+    "active": false
+  },
+  {
+    "id": 7,
+    "semester": 6,
+    "title": "Yeetus Deletus",
+    "date": "01-04-2024",
+    "active": true 
+  },
+  {
+    "id": 8,
+    "semester": 5,
+    "title": "I wanna be the very best",
+    "date": "24-04-2024",
+    "active": true
+  },
+  {
+    "id": 9,
+    "semester": 7,
+    "title": "Like no one ever was!",
+    "date": "25-04-2024",
+    "active": false
+  },
+  {
+    "id": 10,
+    "semester": 8,
+    "title": "To catch them is my real test",
+    "date": "13-01-2024",
+    "active": true 
+  },
+  {
+    "id": 11,
+    "semester": 4,
+    "title": "To train them is my cause",
+    "date": "30-05-2024",
+    "active": true
+  },
+  {
+    "id": 12,
+    "semester": 4,
+    "title": "I wanna travel across the lands",
+    "date": "06-06-2024",
+    "active": false
+  }
+]
