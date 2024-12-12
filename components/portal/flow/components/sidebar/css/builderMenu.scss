@@ -1,12 +1,14 @@
 .buildermenu {
-    --text: #0a0a0a;
     grid-column: 2 / 3;
     grid-row: 1;
-    background-color: white;
-    color: var(--text);
-    border-left: 1px solid #eee;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #161A30;
+    color: white;
+    border-left: 1px solid #31304D;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     >h3 {
         display: flex;
@@ -16,16 +18,7 @@
     }
 }
 
-.buildermenu-button {
-    border-radius: 4px;
-    gap: 8px;
-    cursor: pointer;
-    display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-}
-
 h4 {
     padding-top: 8px;
+    margin-bottom: 8px;
 }
