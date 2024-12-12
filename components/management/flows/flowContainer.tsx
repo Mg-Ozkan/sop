@@ -1,59 +1,71 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { FlowDefinition } from "@/components/types/FlowDefinition";
 import { defaultDefinition } from "@/components/portal/flow/initial-elements";
 import { FlowDisplay } from "@/components/portal/flow/FlowDisplay";
+import { ReactFlowProvider } from "@xyflow/react";
+import { FlowList } from "./FlowList";
 
 export type DetailsPageAction = "edit" | "new";
 
-// export interface IDefinitionAction {
-//     id: number | null,
-//     action?: DetailsPageAction
-// }
-
-// export interface IDefinition {
-//     definition: FlowDefinition;
-//     //action?: IDefinitionAction;
-// }
-
 interface RoutingProps {
-    id?: number | null;
+    routeId?: number | null;
   }
 
-export const FlowContainer: React.FC<RoutingProps> = ({ id }) => {
-    const [selectedDefinitionId, setSelectedDefinitionId] = useState<number | null>(id || null);
+export const FlowContainer: React.FC<RoutingProps> = ({ routeId }) => {
+    const [selectedDefinitionId, setSelectedDefinitionId] = useState<number | null>(routeId || null);
+    const [selectedAction, setSelectedAction] = useState<DetailsPageAction | null>(null);
+    const [allDefinitions, setAllDefinitions] = useState<FlowDefinition[]>(defaultDefinition);
 
-    // Get all existing flows to pass it to the FlowList component, this should be an api call
-    const allDefinitions = useMemo(() => (
-        defaultDefinition ? defaultDefinition.filter((d) => d.displayName) : []
-    ), [defaultDefinition]);
-
-    // Get the selected definition. From the action we determine if it is a new definition or an existing one
+    // Get the selected definition based on action
     const selectedDefinition = useMemo(() => {
-        if (selectedDefinitionId === null) {
-            return null;
-        }
-        if (defaultDefinition !== null) {
-            const foundDefinition = defaultDefinition.find((d) => d.id === Number(selectedDefinitionId));
-    
-            return foundDefinition || null; // Return null if no match found
+        if (selectedAction === 'new') {
+            // Create a new empty definition
+            return {
+                id: null,
+                displayName: '',
+                isEnabled: true,
+                nodes: [],
+                edges: [],
+            } as FlowDefinition;
+        } else if (selectedAction === 'edit' && selectedDefinitionId !== null) {
+            // Find the existing definition to edit
+            const foundDefinition = allDefinitions.find((d) => d.id === selectedDefinitionId);
+            return foundDefinition || null;
         }
         return null;
-    }, [selectedDefinitionId]);
+    }, [selectedAction, selectedDefinitionId, allDefinitions]);
 
-    const onBack = () => setSelectedDefinitionId(null);
+    const onAdd = () => {
+        setSelectedAction('new');
+        setSelectedDefinitionId(null);
+    };
 
-    return (
-        <>
-            {/* {selectedDefinition === null ? (
-                <FlowList definition={allDefinitions} onEdit={onEdit} onAdd={onAdd}  />
-            ) : ( */}
-                <FlowDisplay 
-                    definition={selectedDefinition as FlowDefinition}
-                    onBack={onBack} 
-                />
-            {/* )} */}
-        </>
-    );
+    const onEdit = (id: number) => {
+        setSelectedAction('edit');
+        setSelectedDefinitionId(id);
+    };
+
+    const onBack = () => {
+        if (selectedDefinitionId != null) {
+            setSelectedDefinitionId(selectedDefinitionId);
+            setSelectedAction("edit");
+        } else {
+            setSelectedDefinitionId(null);
+            setSelectedAction(null);
+        }
+    };
+
+  return (
+    <>
+      {selectedAction === null ? (
+        <FlowList definitions={allDefinitions} onEdit={onEdit} onAdd={onAdd} onDelete={() => {}} />
+      ) : (
+        <ReactFlowProvider>
+            <FlowDisplay definition={selectedDefinition as FlowDefinition} onBack={onBack} />
+        </ReactFlowProvider>
+      )}
+    </>
+  );
 };

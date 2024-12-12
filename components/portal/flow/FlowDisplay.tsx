@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { 
   ReactFlow, 
   Background, 
@@ -45,6 +45,8 @@ const proOptions = { account: "paid-pro", hideAttribution: true };
 export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) => {
   const [selectedDefinition, setSelectedDefinition] = React.useState<FlowDefinition | null>(definition);
   const [selectedNode, setSelectedNode] = React.useState<ShapeNode | null>(null);
+  //const [currentDefinition, setCurrentDefinition] = useState<FlowDefinition | null>(definition);
+
   const { screenToFlowPosition, setNodes } = useReactFlow<ShapeNode>();
 
   const onSelectionChange = React.useCallback(
@@ -117,7 +119,7 @@ export const FlowDisplay: React.FC<FlowDisplayProps> = ({ definition, onBack }) 
         type,
         color: "#3F8AE2",
         name: type,
-        description: "Description",
+        description: "Omschrijving",
         url: "https://www.fontys.nl",
         isActive: true,
       },
