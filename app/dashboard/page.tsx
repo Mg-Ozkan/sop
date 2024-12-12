@@ -26,7 +26,6 @@ export default function Dashboard(): JSX.Element {
     const toggleTheme = () => setIsDarkMode((prev) => !prev);
     const toggleRole = () => setIsTeacher((prev) => !prev);
 
-
     return (
         <div className={isDarkMode ? "dark-mode" : ""}>
             <div className="toggles-container">

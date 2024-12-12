@@ -1,13 +1,21 @@
-interface ListviewItemProps {
-  semester: number,
-  title: string,
-  date: string,
-  active: boolean,
+import { useRouter } from 'next/navigation'
+
+interface ListViewItemProps {
+  id: number;
+  semester: number;
+  title: string;
+  editDate: Date;
+  isActive: boolean;
 }
 
-export default function ListviewItem({semester, title, date, active} : ListviewItemProps) {
+export default function ListviewItem({id, semester, title, editDate, isActive} : ListViewItemProps) {
+  const router = useRouter();
+
+	const navigateToProject = () => {
+		router.push('/competenties')
+	}
   return (
-    <div className="item-container">
+    <div className="item-container" onClick={() => navigateToProject()}>
       <div className="item-wrapper">
         <p className="semester">
           {semester}
@@ -16,10 +24,10 @@ export default function ListviewItem({semester, title, date, active} : ListviewI
           {title}
         </p>
         <p className="date">
-            {date}
+          {editDate ? new Date(editDate).toLocaleDateString() : "No date given."}
         </p>
         <p className="state">
-          {active ? "ja" : "nee"}
+          {isActive ? "ja" : "nee"}
         </p>
         <p className="edit">
           Bewerken

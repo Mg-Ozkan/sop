@@ -4,7 +4,7 @@ import { promises as fs } from 'fs';
 import { type Edge } from "@xyflow/react";
 import { type ShapeNode } from "../../../components/portal/flow/components/shape/types/page";
 
-interface SOP {
+export interface SOP {
     id: number;
     title: string;
     semester: number;
@@ -13,7 +13,7 @@ interface SOP {
     competenties: Competentie[];
 } 
 
-interface Competentie{
+export interface Competentie{
   id: number;
   title: string;
   skills: ShapeNode[];

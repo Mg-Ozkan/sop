@@ -1,5 +1,6 @@
 import Carousel from "react-multi-carousel";
-import ProjectListing from "./projectListing"
+import ProjectListing from "./projectListing";
+import { SOP } from "../../../api/flows/route"
 
 import { ButtonGroupProps, ArrowProps, DotProps } from 'react-multi-carousel/lib/types';
 
@@ -7,15 +8,10 @@ import "react-multi-carousel/lib/styles.css";
 import "./slider.css";
 
 interface SliderProps {
-    projects: Project[]
+    projects: SOP[]
 }
 
 //reflect uml class once definitive
-interface Project {
-    id: number;
-    title: string;
-    date: string;
-}
 
 const responsive = {
     desktop: {
@@ -72,7 +68,7 @@ export default function Slider({ projects }: SliderProps) {
                 {projects.map((project, index) => {
                     return (
                         <div className="slider" key={index}>
-                            <ProjectListing key={project.id} id={project.id} title={project.title} date={project.date} />
+                            <ProjectListing key={project.id} id={project.id} title={project.title} editDate={project.editDate} />
                         </div>
                         )
                     })
