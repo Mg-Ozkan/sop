@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Software Ontwikkelings Project",
+  title: "Software Ontwikkelings Proces",
   description: "",
 };
 
