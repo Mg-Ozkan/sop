@@ -406,6 +406,7 @@
 
 .edit {
     margin-left: 20px;
+    display: none;
 }
 
 .h3 {
@@ -538,4 +539,12 @@
 
 .theme-toggle {
     margin-left: 5px;
+}
+
+.item-container:hover {
+    cursor: pointer;
+}
+
+.item-wrapper:hover .edit {
+    display: block;
 }

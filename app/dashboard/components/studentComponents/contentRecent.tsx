@@ -1,12 +1,30 @@
 import Slider from './slider';
-import Fetcher from '../Fetcher';
 import '../../page.scss';
 import FilterComponent from '../Filter';
-import { Project } from '../Fetcher';
+import { SOP } from '../../../api/flows/route';
+import { useState, useEffect } from 'react';
 
 export default function ContentRecent() {
-    const fetchReturn = Fetcher(true);
-    const { filteredData, filter, loading, handleFilterChange } = FilterComponent<Project>({data: fetchReturn.data, filterKey: 'title'});
+    const [apiData, setApiData] = useState<SOP[]>([]);
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await fetch("/api/flows");
+          if (response.ok) {
+            const result = await response.json();
+            setApiData(result);
+          } else {
+            console.error("Failed to fetch data");
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+  
+      fetchData();
+    }, []);
+    const { filteredData, filter, loading, handleFilterChange } = FilterComponent<SOP>({data: apiData, filterKey: 'title'});
 
 
     return (

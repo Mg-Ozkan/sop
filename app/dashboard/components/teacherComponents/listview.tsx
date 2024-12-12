@@ -1,17 +1,37 @@
-import Fetcher from "../Fetcher";
 import FilterComponent from "../Filter";
 import ListviewItem from "./listviewItem";
-import { Sop } from "../Fetcher";
+import { SOP } from "../../../api/flows/route";
+import { useState, useEffect } from 'react';
 import useSort from "../Sorter";
 
 
 export default function Listview() {
-  const fetchReturn = Fetcher<Sop>(false);
-  const { filteredData, filter, loading, handleFilterChange } = FilterComponent<Sop>({
-    data: fetchReturn.data, 
+  const [apiData, setApiData] = useState<SOP[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/flows");
+        if (response.ok) {
+          const result = await response.json();
+          setApiData(result);
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
+  const { filteredData, filter, loading, handleFilterChange } = FilterComponent<SOP>({
+    data: apiData, 
     filterKey: 'title'
   });
-  const { sortedData, onSort, getSortIcon } = useSort<Sop>(filteredData);
+  const { sortedData, onSort, getSortIcon } = useSort<SOP>(filteredData);
 
 	return (
     <div>
@@ -39,27 +59,28 @@ export default function Listview() {
             Titel 
             <span className="sort-icon">{getSortIcon("title")}</span>
           </h3>
-          <h3 className="headers date" onClick={() => onSort("date")}>
+          <h3 className="headers date" onClick={() => onSort("editDate")}>
             Laatst aangepast
-            <span className="sort-icon">{getSortIcon("date")}</span>
+            <span className="sort-icon">{getSortIcon("editDate")}</span>
           </h3>
-          <h3 className="headers state" onClick={() => onSort("active")}>
+          <h3 className="headers state" onClick={() => onSort("isActive")}>
             Actief? 
-            <span className="sort-icon">{getSortIcon("active")}</span>
+            <span className="sort-icon">{getSortIcon("isActive")}</span>
           </h3>
           <h3 className="edit">
           </h3>
         </div>
-
+      
         {filteredData.length > 0 ? (
           <ul className="listview">
             {sortedData.map((item, index) => (
               <li key={index} className="listview-item">
                 <ListviewItem 
+                  id={item.id}
                   semester={item.semester} 
                   title={item.title} 
-                  date={item.date} 
-                  active={item.active} 
+                  editDate={item.editDate} 
+                  isActive={item.isActive} 
                 />
               </li>
             ))}
