@@ -6,25 +6,24 @@ interface FilterProps<T> {
 }
 
 interface FilterResult<T> {
-    loading: boolean;
     filter: string;
     filteredData: T[];
     handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function FilterComponent<T extends Record<string, any>>({ data, filterKey }: FilterProps<T>): FilterResult<T> {
+export default function FilterComponent<T extends Record<string, any>>({ 
+    data, 
+    filterKey 
+}: FilterProps<T>): FilterResult<T> {
     const [filter, setFilter] = useState<string>('');
-    const [loading, setLoading] = useState<boolean>(false);
     const [filteredData, setFilterData] = useState<T[]>([]);
 
     useEffect(() => {
-        setLoading(true);
         const timeout = setTimeout(() => {
             const filtered = data.filter((item) =>
                 String(item[filterKey]).toLowerCase().includes(filter.toLowerCase())
             );
             setFilterData(filtered);
-            setLoading(false);
         }, 300);
         
         return () => clearTimeout(timeout);
@@ -34,5 +33,5 @@ export default function FilterComponent<T extends Record<string, any>>({ data, f
         setFilter(e.target.value);
     };
 
-    return { filteredData, filter, loading, handleFilterChange };
+    return { filteredData, filter, handleFilterChange };
 }

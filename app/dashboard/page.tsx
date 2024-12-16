@@ -6,10 +6,14 @@ import StudentDashboard from './components/studentDashboard';
 import "./page.scss";
 import RoleToggle from './components/toggles/role-toggle';
 import ThemeToggle from './components/toggles/theme-toggle';
+import Spinner from './components/Spinner';
+import { SOP } from "../api/flows/route";
 
 export default function Dashboard(): JSX.Element {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isTeacher, setIsTeacher] = useState(false);
+    const [apiData, setApiData] = useState<SOP[]>([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -23,8 +27,32 @@ export default function Dashboard(): JSX.Element {
         }
     }, []);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch("/api/flows");
+                if (response.ok) {
+                    const result: SOP[] = await response.json();
+                    setApiData(result);
+                } else {
+                    console.error("Failed to fetch data");
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     const toggleTheme = () => setIsDarkMode((prev) => !prev);
     const toggleRole = () => setIsTeacher((prev) => !prev);
+
+    if (loading) {
+        return <Spinner />;
+    }
 
     return (
         <div className={isDarkMode ? "dark-mode" : ""}>
@@ -33,9 +61,9 @@ export default function Dashboard(): JSX.Element {
                 <ThemeToggle onThemeChange={toggleTheme} isDarkMode={isDarkMode} />
             </div>
             {isTeacher ? (
-                <TeacherDashboard />
+                <TeacherDashboard data={apiData}/>
             ) : (
-                <StudentDashboard />
+                <StudentDashboard data={apiData}/>
             )}
         </div>
     )

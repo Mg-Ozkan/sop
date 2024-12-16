@@ -1,34 +1,15 @@
 import FilterComponent from "../Filter";
 import ListviewItem from "./listviewItem";
 import { SOP } from "../../../api/flows/route";
-import { useState, useEffect } from 'react';
 import useSort from "../Sorter";
 
+interface ListViewProps {
+  data: SOP[];
+}
 
-export default function Listview() {
-  const [apiData, setApiData] = useState<SOP[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("/api/flows");
-        if (response.ok) {
-          const result = await response.json();
-          setApiData(result);
-        } else {
-          console.error("Failed to fetch data");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-
-  const { filteredData, filter, loading, handleFilterChange } = FilterComponent<SOP>({
-    data: apiData, 
+export default function Listview({ data }: ListViewProps) {
+  const { filteredData, filter, handleFilterChange } = FilterComponent<SOP>({
+    data: data, 
     filterKey: 'title'
   });
   const { sortedData, onSort, getSortIcon } = useSort<SOP>(filteredData);

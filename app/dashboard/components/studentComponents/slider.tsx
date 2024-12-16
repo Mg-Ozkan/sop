@@ -3,6 +3,8 @@ import ProjectListing from "./projectListing";
 import { SOP } from "../../../api/flows/route"
 
 import { ButtonGroupProps, ArrowProps, DotProps } from 'react-multi-carousel/lib/types';
+import { useEffect } from 'react';
+
 
 import "react-multi-carousel/lib/styles.css";
 import "./slider.css";
@@ -11,25 +13,14 @@ interface SliderProps {
     projects: SOP[]
 }
 
-//reflect uml class once definitive
-
 const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
+        breakpoint: { max: 20000, min: 1024 },
         slidesToSlide: 1,
         items: 4,
         partialVisibilityGutter: 40
     },
 };
-
-const responsiveSearch = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 4,
-        slidesToSlide: 1,
-        partialVisibilityGutter: 0
-    },
-}
 
 interface CarouselButtonGroupProps extends ButtonGroupProps {
     className?: string;
