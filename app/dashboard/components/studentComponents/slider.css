@@ -93,7 +93,7 @@
     background-color: #1D2138;
 }
 
-@media (max-width: 3000px) {
+@media (max-width: 4000px) {
     .slider-wrapper {
         width: 1100px;
     }

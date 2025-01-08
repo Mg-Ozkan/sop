@@ -1,6 +1,11 @@
 import Listview from "./teacherComponents/listview";
+import { SOP } from "../../api/flows/route"
 
-export default function TeacherDashboard() {
+interface TeacherDashboardProps {
+  data: SOP[];
+}
+
+export default function TeacherDashboard({ data }: TeacherDashboardProps) {
 	return (
     <div className="content">
       <div className="currentSOP-container">
@@ -9,7 +14,7 @@ export default function TeacherDashboard() {
             Software ontwikkel processen
           </h1>
           <div className="SOP-container">
-            <Listview />
+            <Listview data={data}/>
             <div className="create-new-button">
               <h3 className="create-new-title">
                 Nieuwe SOP aanmaken
