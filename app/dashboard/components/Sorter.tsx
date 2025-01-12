@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FaSort, FaSortUp, FaSortDown } from 'react-icons/fa';
-
+import React from 'react';
 interface SortConfig<T> {
   key: keyof T;
   ascending: boolean;

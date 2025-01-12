@@ -1,5 +1,6 @@
 import "../../page.scss";
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 //temporary interface, must change to exact class once decided upon
 interface ProjectListingProps {
