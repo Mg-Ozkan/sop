@@ -1,5 +1,5 @@
 import Listview from "./teacherComponents/listview";
-import { SOP } from "../../api/flows/route"
+import { SOP } from "../../api/BaseService"
 
 interface TeacherDashboardProps {
   data: SOP[];

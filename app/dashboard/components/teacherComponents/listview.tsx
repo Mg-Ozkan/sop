@@ -1,6 +1,6 @@
 import FilterComponent from "../Filter";
 import ListviewItem from "./listviewItem";
-import { SOP } from "../../../api/flows/route";
+import { SOP } from "../../../api/BaseService";
 import useSort from "../Sorter";
 
 interface ListViewProps {

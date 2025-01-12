@@ -1,9 +1,54 @@
 [
   {
     "id": "1",
-    "title": "This is meaux title",
+    "title": "Semester 1",
+    "semester": "1",
+    "editDate": "2023-10-12",
+    "isActive": true,
+    "competenties": [
+      {
+        "id": "1",
+        "title": "blabla",
+        "skills": [
+          {
+            "id": "1",
+            "type": "shape",
+            "position": {
+              "x": 0,
+              "y": 0
+            },
+            "style": {
+              "width": 100,
+              "height": 50
+            },
+            "data": {
+              "type": "round-rectangle",
+              "color": "#3F8AE2",
+              "name": "Start",
+              "description": "Implementing class diagrams",
+              "url": "www.blablabla.com",
+              "isActive": true
+            },
+            "selected": false
+          }
+        ],
+        "edges": [
+          {
+            "id": "1->2",
+            "source": "1",
+            "target": "2",
+            "sourceHandle": "bottom",
+            "targetHandle": "top"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Semester 2",
     "semester": "2",
-    "editDate": "10-01-2024",
+    "editDate": "2024-09-01",
     "isActive": true,
     "competenties": [
       {
@@ -45,10 +90,10 @@
     ]
   },
   {
-    "id": "11",
-    "title": "Soppish title",
-    "semester": "10",
-    "editDate": "10-01-2124",
+    "id": "3",
+    "title": "Semester 3",
+    "semester": "3",
+    "editDate": "2024-02-01",
     "isActive": true,
     "competenties": [
       {
@@ -90,10 +135,10 @@
     ]
   },
   {
-    "id": "111",
-    "title": "Hans is laat",
+    "id": "4",
+    "title": "Semester 4",
     "semester": "10",
-    "editDate": "10-01-1999",
+    "editDate": "2024-02-01",
     "isActive": true,
     "competenties": [
       {
@@ -135,55 +180,10 @@
     ]
   },
   {
-    "id": "1111",
-    "title": "Kaysi is ...",
-    "semester": "10",
-    "editDate": "10-01-1999",
-    "isActive": true,
-    "competenties": [
-      {
-        "id": "1",
-        "title": "blabla",
-        "skills": [
-          {
-            "id": "1",
-            "type": "shape",
-            "position": {
-              "x": 0,
-              "y": 0
-            },
-            "style": {
-              "width": 100,
-              "height": 50
-            },
-            "data": {
-              "type": "round-rectangle",
-              "color": "#3F8AE2",
-              "name": "Start",
-              "description": "Implementing class diagrams",
-              "url": "www.blablabla.com",
-              "isActive": true
-            },
-            "selected": false
-          }
-        ],
-        "edges": [
-          {
-            "id": "1->2",
-            "source": "1",
-            "target": "2",
-            "sourceHandle": "bottom",
-            "targetHandle": "top"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 1112,
-    "title": "Kaysi is anders",
-    "semester": "10",
-    "editDate": "10-01-1999",
+    "id": 5,
+    "title": "Semester 5",
+    "semester": "5",
+    "editDate": "2025-09-01",
     "isActive": true,
     "competenties": [
       {

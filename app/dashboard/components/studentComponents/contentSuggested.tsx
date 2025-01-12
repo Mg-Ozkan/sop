@@ -1,6 +1,6 @@
 import ProjectListing from './projectListing';
 import "../../page.scss";
-import { SOP } from '../../../api/flows/route'
+import { SOP } from '../../../api/BaseService'
 import { useRouter } from 'next/navigation';
 
 interface ContentSuggestedProps {
@@ -30,8 +30,8 @@ export default function ContentSuggested({ data }: ContentSuggestedProps) {
 						</p>
 					</div>
 					<div className="action-recent">
-						{data && data[0] ? (
-								<ProjectListing id={data[0].id} title={data[0].title} editDate={data[0].editDate} />
+						{data ? (
+								<ProjectListing id={data[data.length-1].id} title={data[data.length-1].title} editDate={data[data.length-1].editDate} />
 						) : ""}
 					</div>
 				</div>
