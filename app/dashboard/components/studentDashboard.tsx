@@ -1,6 +1,6 @@
 import ContentSuggested from "./studentComponents/contentSuggested";
 import ContentRecent from "./studentComponents/contentRecent";
-import { SOP } from "../../api/flows/route"
+import { SOP } from "../../api/BaseService"
 
 interface StudentDashboardProps {
     data: SOP[];

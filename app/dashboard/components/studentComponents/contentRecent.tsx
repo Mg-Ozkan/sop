@@ -1,7 +1,7 @@
 import Slider from './slider';
 import '../../page.scss';
 import FilterComponent from '../Filter';
-import { SOP } from '../../../api/flows/route';
+import { SOP } from '../../../api/BaseService';
 
 interface ContentRecentProps {
     data: SOP[];

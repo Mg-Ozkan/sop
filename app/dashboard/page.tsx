@@ -7,7 +7,7 @@ import "./page.scss";
 import RoleToggle from './components/toggles/role-toggle';
 import ThemeToggle from './components/toggles/theme-toggle';
 import Spinner from './components/Spinner';
-import { SOP } from "../api/flows/route";
+import { SOP } from "../api/BaseService";
 
 export default function Dashboard(): JSX.Element {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -30,7 +30,7 @@ export default function Dashboard(): JSX.Element {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("/api/flows");
+                const response = await fetch("/api/SOP");
                 if (response.ok) {
                     const result: SOP[] = await response.json();
                     setApiData(result);
