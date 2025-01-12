@@ -2,6 +2,7 @@ import Slider from './slider';
 import '../../page.scss';
 import FilterComponent from '../Filter';
 import { SOP } from '../../../api/BaseService';
+import React from 'react';
 
 interface ContentRecentProps {
     data: SOP[];

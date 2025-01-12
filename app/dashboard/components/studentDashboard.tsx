@@ -1,6 +1,7 @@
 import ContentSuggested from "./studentComponents/contentSuggested";
 import ContentRecent from "./studentComponents/contentRecent";
 import { SOP } from "../../api/BaseService"
+import React from 'react';
 
 interface StudentDashboardProps {
     data: SOP[];

@@ -1,7 +1,7 @@
 import Carousel from "react-multi-carousel";
 import ProjectListing from "./projectListing";
 import { SOP } from "../../../api/BaseService"
-
+import React from 'react';
 import { ButtonGroupProps, ArrowProps, DotProps } from 'react-multi-carousel/lib/types';
 import { useEffect } from 'react';
 
@@ -56,7 +56,7 @@ export default function Slider({ projects }: SliderProps) {
                 containerClass="react-multi-carousel-list"
                 itemClass="react-multi-carousel-item"
             >
-                {projects.toReversed().map((project, index) => {
+                {projects.reverse().map((project, index) => {
                     return (
                         <div className="slider" key={index}>
                             <ProjectListing key={project.id} id={project.id} title={project.title} editDate={project.editDate} />

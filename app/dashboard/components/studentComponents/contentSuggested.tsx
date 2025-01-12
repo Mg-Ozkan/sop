@@ -2,6 +2,7 @@ import ProjectListing from './projectListing';
 import "../../page.scss";
 import { SOP } from '../../../api/BaseService'
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 interface ContentSuggestedProps {
 	data: SOP[];
