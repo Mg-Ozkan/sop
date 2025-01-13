@@ -2,12 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".", // Zet de basis naar de root van je project
     "paths": {
-      "@/*": [
-        "./*"
-      ] // Definieer de alias "@" /sop/components
+      "@/*": [ "./*" ] // Definieer de alias "@" /sop/components
     },
     "target": "ES2020",
-    "module": "ESNext",
+    "outDir": "./dist",
+    "module": "CommonJS",
     "strict": true,
     "jsx": "preserve",
     "moduleResolution": "node",
