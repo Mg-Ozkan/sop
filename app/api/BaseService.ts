@@ -5,11 +5,9 @@ import { type ShapeNode } from "../../components/portal/flow/components/shape/ty
 
 export interface SOP {
     id: number;
-    title: string;
+    titel: string;
     semester: number;
-    editDate: Date;
-    isActive: boolean;
-    competenties: Competentie[];
+    datum: Date;
 } 
 
 export interface Competentie{
@@ -27,6 +25,7 @@ export interface Project extends SOP {
 const jsonFilePath = path.join(process.cwd(), 'public', 'sopData.json');
 const usersFilePath = path.join(process.cwd(), 'public', 'user.json');
  
+
 export async function getData() : Promise<SOP[]> {
   const fileContents = await fs.readFile(jsonFilePath, 'utf8');
   return JSON.parse(fileContents) as SOP[];

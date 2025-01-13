@@ -1,9 +1,9 @@
 import ProjectListing from './projectListing';
 import "../../page.scss";
-import { SOP } from '../../../api/BaseService'
+//import { SOP } from '../../../api/BaseService'
+import { SOP, getAllSOPs} from "server/src/services/sopService"
 import { useRouter } from 'next/navigation';
 import React from 'react';
-
 interface ContentSuggestedProps {
 	data: SOP[];
 }
@@ -32,7 +32,7 @@ export default function ContentSuggested({ data }: ContentSuggestedProps) {
 					</div>
 					<div className="action-recent">
 						{data ? (
-								<ProjectListing id={data[data.length-1].id} title={data[data.length-1].title} editDate={data[data.length-1].editDate} />
+								<ProjectListing id={data[data.length-1].id} titel={data[data.length-1].titel} datum={data[data.length-1].datum} />
 						) : ""}
 					</div>
 				</div>

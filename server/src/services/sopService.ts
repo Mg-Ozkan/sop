@@ -2,8 +2,8 @@ import pool from '../config/db'; // Zorg dat dit verwijst naar je databaseconfig
 //console.log('Pool instance:', pool); // Dit zou de Pool-informatie moeten loggen
 
 // Type voor een SOP-record
-interface SOP {
-  id?: number;
+export interface SOP {
+  id: number;
   titel: string;
   semester: string;
   datum: Date;
@@ -13,6 +13,20 @@ interface SOP {
  * Haalt alle SOP's op uit de database.
  * @returns {Promise<SOP[]>} Een array met alle SOP-records.
  */
+
+/*export async function getData(): Promise<SOP[]> {
+  try {
+    const response = await fetch("http://localhost:6000/api/sop"); // Backend API-aanroep
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data: ${response.status}`);
+    }
+    const data = await response.json();
+    return data as SOP[];
+  } catch (error) {
+    console.error("Error fetching data from backend API:", error);
+    throw error;
+  }
+} */
 export const getAllSOPs = async (): Promise<SOP[]> => {
   try {
     const [rows] = await pool.query('SELECT * FROM SOP');
@@ -72,3 +86,5 @@ export const deleteSOP = async (id: number): Promise<void> => {
     throw error;
   }
 };
+
+export default { getAllSOPs, createSOP };

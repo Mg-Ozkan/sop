@@ -5,11 +5,11 @@ import React from 'react';
 //temporary interface, must change to exact class once decided upon
 interface ProjectListingProps {
 		id: number;
-		title: string;
-		editDate: Date;
+		titel: string;
+		datum: Date;
 }
 
-export default function ProjectListing({ id, title, editDate }: ProjectListingProps) {
+export default function ProjectListing({ id, titel, datum }: ProjectListingProps) {
 	const router = useRouter();
 
 	const navigateToProject = () => {
@@ -22,11 +22,11 @@ export default function ProjectListing({ id, title, editDate }: ProjectListingPr
 				<div className="project-image-wrapper">
 				</div>
 				<div className="project-description-wrapper">
-					<h1 className="project-title">
-						{title}
+					<h1 className="project-titel">
+						{titel}
 					</h1>
 					<p className="project-date">
-						{editDate ? editDate.toString() : "Geen datum opgegeven."}
+						{datum ? datum.toString() : "Geen datum opgegeven."}
 					</p>
 				</div>
 			</div>

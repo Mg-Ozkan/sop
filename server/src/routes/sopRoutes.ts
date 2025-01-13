@@ -1,10 +1,11 @@
 import express from 'express';
 import * as sopController from '../controllers/sopController';
+import { getAllSOPs } from '../services/sopService';
 
 const router = express.Router();
 
 // Route om alle SOP's op te halen
-router.get('/', sopController.getAll);
+router.get("/api/sop", sopController.getAll); // Ophalen van alle SOP's
 
 // Route om een specifieke SOP op te halen
 router.get('/:id', sopController.getById);

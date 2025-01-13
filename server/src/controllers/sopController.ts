@@ -5,7 +5,7 @@ import { getAllSOPs, getSOPById, createSOP, deleteSOP } from '../services/sopSer
 export const getAll = async (req: Request, res: Response): Promise<void> => {
   try {
     const sops = await getAllSOPs();
-    res.json(sops);
+    res.status(200).json(sops);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch SOPs' });
   }
@@ -30,7 +30,10 @@ export const getById = async (req: Request, res: Response): Promise<void> => {
 export const create = async (req: Request, res: Response): Promise<void> => {
   const { titel, semester, datum } = req.body;
   try {
-    const newSOP = await createSOP({ titel, semester, datum });
+    const newSOP = await createSOP({
+      titel, semester, datum,
+      id: 0
+    });
     res.status(201).json(newSOP);
   } catch (error) {
     res.status(500).json({ error: 'Failed to create SOP' });
@@ -47,3 +50,5 @@ export const remove = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ error: 'Failed to delete SOP' });
   }
 };
+
+export default { getAll, create };

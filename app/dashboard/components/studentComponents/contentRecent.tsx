@@ -16,7 +16,7 @@ export default function ContentRecent({ data }: ContentRecentProps) {
         <div className="recent-projects-container">
             <div className="recent-projects-wrapper">
                 <div className="searchbar-container">
-                    <>{/*add magnifying glass icon*/}</>
+                    <>{/*add magnifying glass icon*/ }</>
                     <div className="recent-projects-search-icon">
                     </div>
 
